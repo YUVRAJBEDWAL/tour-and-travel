@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Route Planner</title>
+    <meta charset="utf-8">
+    
+    <!-- Add Leaflet CSS and JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Add Leaflet Routing Machine -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+
+    <!-- Add Leaflet Control Geocoder -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+    <style>
+    #map-container {
+        width: 100%;
+        height: 600px;
+    }
+
+    .run-button {
+        display: none;
+    }
+
+    .coordinates-input {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: white;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        z-index: 1000;
+        width: 280px;
+    }
+
+    .coordinates-input select {
+        width: 100%;
+        padding: 8px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    .coordinates-input button {
+        margin-top: 10px;
+        padding: 8px 15px;
+        background-color: #007AFF;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .coordinates-input button:hover {
+        background-color: #0056b3;
+    }
+
+    .search-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: white;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        z-index: 1000;
+        width: 250px;
+    }
+
+    .search-container input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .search-results {
+        max-height: 200px;
+        overflow-y: auto;
+    }
+
+    .search-result-item {
+        padding: 8px;
+        cursor: pointer;
+        border-bottom: 1px solid #eee;
+    }
+
+    .search-result-item:hover {
+        background-color: #f0f0f0;
+    }
+
+    .button-container {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .action-button {
+        flex: 1;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+
+    .calculate-button {
+        background-color: #007AFF;
+        color: white;
+    }
+
+    .calculate-button:hover {
+        background-color: #0056b3;
+    }
+
+    .clear-button {
+        background-color: #ff3b30;
+        color: white;
+    }
+
+    .clear-button:hover {
+        background-color: #dc3545;
+    }
+
+    /* Add these styles to hide/minimize the attribution */
+    .leaflet-control-attribution {
+        display: none !important;  /* Completely hides the attribution */
+    }
+    
+    /* Optional: If you want to show a minimal attribution instead of completely hiding it */
+    /*.leaflet-control-attribution {
+        font-size: 8px;
+        background: rgba(255, 255, 255, 0.5);
+        padding: 0 3px;
+    }*/
+
+    /* Add these styles for zoom controls */
+    .leaflet-control-zoom {
+        position: fixed !important;
+        right: 20px !important;
+        bottom: 80px !important;
+        left: auto !important;
+        top: auto !important;
+        border: none !important;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
+    }
+
+    .leaflet-control-zoom-in,
+    .leaflet-control-zoom-out {
+        width: 40px !important;
+        height: 40px !important;
+        line-height: 40px !important;
+        background-color: white !important;
+        color: #007AFF !important;
+        font-size: 20px !important;
+        font-weight: bold !important;
+        border: none !important;
+        border-radius: 4px !important;
+        margin-bottom: 5px !important;
+    }
+
+    .leaflet-control-zoom-in:hover,
+    .leaflet-control-zoom-out:hover {
+        background-color: #f0f0f0 !important;
+        color: #0056b3 !important;
+    }
+    </style>
+
+    <script>
+        let map;
+        let routingControl;
+        let markers = [];
+
+        // Major Indian cities with their coordinates
+        const indianCities = {
+            "Select City": "",
+            "Mumbai": [19.0760, 72.8777],
+            "Delhi": [28.6139, 77.2090],
+            "Bangalore": [12.9716, 77.5946],
+            "Hyderabad": [17.3850, 78.4867],
+            "Chennai": [13.0827, 80.2707],
+            "Kolkata": [22.5726, 88.3639],
+            "Pune": [18.5204, 73.8567],
+            "Ahmedabad": [23.0225, 72.5714],
+            "Jaipur": [26.9124, 75.7873],
+            "Surat": [21.1702, 72.8311],
+            "Agra": [27.1767, 78.0081],
+            "Varanasi": [25.3176, 82.9739],
+            "Kochi": [9.9312, 76.2673],
+            "Goa": [15.2993, 74.1240],
+            "Amritsar": [31.6340, 74.8723],
+            "Manali": [32.2432, 77.1892],
+            "Jalna": [19.8410, 75.8864],
+            "Sambhaji Nagar": [19.8762, 75.3433],
+            "Darjeeling": [27.0360, 88.2627]
+        };
+
+        async function searchPlace(query) {
+            const searchResults = document.getElementById('searchResults');
+            searchResults.innerHTML = '';
+            
+            if (query.length < 3) return;
+
+            try {
+                const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${query}+india&countrycodes=in&limit=5`);
+                const data = await response.json();
+                
+                data.forEach(place => {
+                    const div = document.createElement('div');
+                    div.className = 'search-result-item';
+                    div.textContent = place.display_name;
+                    div.onclick = () => {
+                        selectPlace(place);
+                    };
+                    searchResults.appendChild(div);
+                });
+            } catch (error) {
+                console.error('Error searching for place:', error);
+            }
+        }
+
+        function selectPlace(place) {
+            const lat = parseFloat(place.lat);
+            const lon = parseFloat(place.lon);
+            
+            // Clear previous markers
+            markers.forEach(marker => map.removeLayer(marker));
+            markers = [];
+
+            // Add new marker
+            const marker = L.marker([lat, lon]).addTo(map);
+            markers.push(marker);
+
+            // Pan to location
+            map.setView([lat, lon], 13);
+
+            // Fill the appropriate coordinate fields
+            if (!document.getElementById('start-city').value) {
+                document.getElementById('start-city').value = place.display_name;
+            } else {
+                document.getElementById('end-city').value = place.display_name;
+            }
+
+            // Clear search results
+            document.getElementById('searchResults').innerHTML = '';
+            document.getElementById('searchInput').value = '';
+        }
+
+        function initMap() {
+            // Initialize the map centered on India
+            map = L.map('map-container', {
+                center: [20.5937, 78.9629],
+                zoom: 5,
+                maxBounds: [
+                    [6.4626999, 68.1097],
+                    [35.513327, 97.39535]
+                ],
+                minZoom: 4,
+                maxZoom: 18,
+                zoomControl: true,  // Enable zoom control
+                zoomPosition: 'bottomright'  // Position zoom controls
+            });
+            
+            // Update the tile layer options
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '' // Remove attribution text
+            }).addTo(map);
+
+            // Prevent the map from moving outside the bounds
+            map.on('drag', function() {
+                map.panInsideBounds([
+                    [6.4626999, 68.1097],
+                    [35.513327, 97.39535]
+                ], { animate: false });
+            });
+
+            // Add search control
+            const geocoder = L.Control.geocoder({
+                defaultMarkGeocode: false,
+                placeholder: "Search for places in India...",
+                geocoder: L.Control.Geocoder.nominatim({
+                    countrycodes: 'in'
+                })
+            })
+            .on('markgeocode', function(e) {
+                const lat = e.geocode.center.lat;
+                const lng = e.geocode.center.lng;
+                
+                if (!document.getElementById('start-city').value) {
+                    document.getElementById('start-city').value = e.geocode.display_name;
+                } else {
+                    document.getElementById('end-city').value = e.geocode.display_name;
+                }
+                
+                map.setView([lat, lng], 13);
+            })
+            .addTo(map);
+
+            // Remove the click handler since we're using dropdowns now
+            populateCityDropdowns();
+        }
+
+        function populateCityDropdowns() {
+            const startSelect = document.getElementById('start-city');
+            const endSelect = document.getElementById('end-city');
+            
+            for (let city in indianCities) {
+                startSelect.add(new Option(city, city));
+                endSelect.add(new Option(city, city));
+            }
+        }
+
+        function updateMap(selectId) {
+            const selectedCity = document.getElementById(selectId).value;
+            if (!selectedCity) return;
+
+            const coordinates = indianCities[selectedCity];
+            
+            // Clear previous markers
+            markers.forEach(marker => map.removeLayer(marker));
+            markers = [];
+
+            // Add new marker
+            const marker = L.marker(coordinates).addTo(map);
+            markers.push(marker);
+
+            // Pan to location
+            map.setView(coordinates, 11);
+        }
+
+        function calculateRoute() {
+            const startCity = document.getElementById('start-city').value;
+            const endCity = document.getElementById('end-city').value;
+
+            if (!startCity || !endCity) {
+                alert('Please select both start and end cities');
+                return;
+            }
+
+            // Remove existing route if any
+            if (routingControl) {
+                map.removeControl(routingControl);
+            }
+
+            // Create new route
+            routingControl = L.Routing.control({
+                waypoints: [
+                    L.latLng(indianCities[startCity]),
+                    L.latLng(indianCities[endCity])
+                ],
+                routeWhileDragging: false,
+                lineOptions: {
+                    styles: [{color: '#007AFF', opacity: 0.8, weight: 5}]
+                }
+            }).addTo(map);
+        }
+
+        function clearRoute() {
+            if (routingControl) {
+                map.removeControl(routingControl);
+                routingControl = null;
+            }
+            document.getElementById('start-city').value = "Select City";
+            document.getElementById('end-city').value = "Select City";
+            
+            // Clear markers
+            markers.forEach(marker => map.removeLayer(marker));
+            markers = [];
+            
+            // Reset map view to India
+            map.setView([20.5937, 78.9629], 5);
+        }
+    </script>
+</head>
+
+<body onload="initMap()">
+    <div class="coordinates-input">
+        <h3>Route Planner</h3>
+        <div>
+            <label>Start City:</label>
+            <select id="start-city" onchange="updateMap('start-city')">
+            </select>
+        </div>
+        <div>
+            <label>End City:</label>
+            <select id="end-city" onchange="updateMap('end-city')">
+            </select>
+        </div>
+        <div class="button-container">
+            <button class="action-button calculate-button" onclick="calculateRoute()">Calculate Route</button>
+            <button class="action-button clear-button" onclick="clearRoute()">Clear Route</button>
+        </div>
+    </div>
+
+    <div class="search-container">
+        <input type="text" 
+               id="searchInput" 
+               placeholder="Search for a place in India..."
+               oninput="searchPlace(this.value)">
+        <div id="searchResults" class="search-results"></div>
+    </div>
+
+    <div id="map-container"></div>
+</body>
+</html>

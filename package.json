@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "kill-port": "node killPort.js"
+  },
+  "name": "travel-106866",
+  "version": "1.0.0",
+  "description": "DEMO-> https://yash-srivastav16.github.io/Tour-Project/ Tour &amp; Travel Project (Using Html, Css, Php, Javascript).",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

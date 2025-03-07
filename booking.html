@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Page</title>
+        .box {
+            background: url('images/home1.jpg') no-repeat;
+            background-size: cover; /* Ensures the image covers the div */
+            height: 300px; /* Set a height for the div */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .booking-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .booking-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .booking-card h2 {
+            color: #333;
+            margin-top: 0;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+    </title>
+</head>
+<body>
+    <div class="box">
+    <!-- You can add content inside this div if needed -->
+    </div>
+    <div class="container">
+        <h1>Travel & Transport Booking</h1>
+        
+        <div class="booking-options">
+            <!-- Hotel Booking -->
+            <div class="booking-card">
+                <h2>Hotel Booking</h2>
+                <form>
+                    <div class="form-group">
+                        <label>Check-in Date</label>
+                        <input type="date" name="check-in" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Check-out Date</label>
+                        <input type="date" name="check-out" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Number of Rooms</label>
+                        <input type="number" name="rooms" min="1" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Book Hotel</button>
+                </form>
+            </div>
+
+            <!-- Flight Booking -->
+            <div class="booking-card">
+                <h2>Flight Booking</h2>
+                <form>
+                    <div class="form-group">
+                        <label>From</label>
+                        <input type="text" name="flight-from" placeholder="Departure City" required>
+                    </div>
+                    <div class="form-group">
+                        <label>To</label>
+                        <input type="text" name="flight-to" placeholder="Arrival City" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" name="flight-date" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Book Flight</button>
+                </form>
+            </div>
+
+            <!-- Train Booking -->
+            <div class="booking-card">
+                <h2>Train Booking</h2>
+                <form>
+                    <div class="form-group">
+                        <label>From Station</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>To Station</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Book Train</button>
+                </form>
+            </div>
+
+            <!-- Bus Booking -->
+            <div class="booking-card">
+                <h2>Bus Booking</h2>
+                <form>
+                    <div class="form-group">
+                        <label>From</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>To</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Book Bus</button>
+                </form>
+            </div>
+
+            <!-- Car Rental -->
+            <div class="booking-card">
+                <h2>Car Rental</h2>
+                <form>
+                    <div class="form-group">
+                        <label>Pickup Location</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Pickup Date</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Return Date</label>
+                        <input type="date" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Rent Car</button>
+                </form>
+            </div>
+
+            <!-- Taxi Booking -->
+            <div class="booking-card">
+                <h2>Taxi Booking</h2>
+                <form>
+                    <div class="form-group">
+                        <label>Pickup Location</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Destination</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Pickup Time</label>
+                        <input type="time" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Book Taxi</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

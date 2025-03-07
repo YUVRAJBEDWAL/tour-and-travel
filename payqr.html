@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment QR Code</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #qrcode {
+            margin: 20px auto;
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+            border: 2px solid #000; /* Box around the QR code */
+            padding: 10px; /* Padding inside the box */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Payment QR Code</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Scan to Access Booking Page</h2>
+            <div id="qrcode"></div>
+        </section>
+    </main>
+    <footer>
+        <p>Tour & Travel</p>
+    </footer>
+    <script>
+        $(document).ready(function() {
+            // QR code will link to newpage.html
+            $('#qrcode').qrcode({
+                width: 200,
+                height: 200,
+                text: 'newpage.html'
+            });
+        });
+    </script>
+</body>
+</html>

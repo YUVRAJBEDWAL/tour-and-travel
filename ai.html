@@ -1,0 +1,153 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Assistant AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        header { background-color: #333; color: white; padding: 20px; text-align: center; }
+        .chatbox { width: 400px; margin: 20px auto; padding: 20px; background-color: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+        .message-container { max-height: 300px; overflow-y: auto; padding-right: 10px; }
+        .user-msg, .ai-msg { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .user-msg { background-color: #5c6bc0; color: white; text-align: right; }
+        .ai-msg { background-color: #e0e0e0; color: #333; }
+        input[type="text"] { width: 100%; padding: 10px; margin-top: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        .btn { background-color: #5c6bc0; color: white; padding: 10px; border-radius: 5px; cursor: pointer; border: none; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Travel Assistant AI</h1>
+</header>
+
+<section class="ai-assistant" id="ai-assistant">
+    <h1 class="heading">Travel AI Assistant</h1>
+    
+    <div class="box" style="background: url(images/aii.jpg) no-repeat center center; background-size: cover; padding: 20px;">
+        <div class="chatbox">
+            <div class="message-container" id="messages">
+                <!-- Initial welcome message -->
+                <div class="ai-msg">Hello! How can I help you plan your travel today?</div>
+            </div>
+            <div class="input-container">
+                <input type="text" id="userInput" placeholder="Ask about your trip..." 
+                       onkeypress="if(event.key === 'Enter') sendMessage()"/>
+                <button class="btn" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let conversationHistory = [];
+
+        function appendMessage(msg, sender) {
+            const messageContainer = document.getElementById('messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = sender === 'user' ? 'user-msg' : 'ai-msg';
+            messageDiv.textContent = msg;
+            messageContainer.appendChild(messageDiv);
+            messageContainer.scrollTop = messageContainer.scrollHeight;
+            
+            // Add to conversation history
+            conversationHistory.push({ role: sender, content: msg });
+        }
+
+        async function sendMessage() {
+            const userInput = document.getElementById('userInput');
+            const message = userInput.value.trim();
+            
+            if (message === '') return;
+
+            // Disable input while processing
+            userInput.disabled = true;
+            
+            // Show user message
+            appendMessage(message, 'user');
+            userInput.value = '';
+
+            // Generate response based on keywords
+            let response = '';
+            const lowerMessage = message.toLowerCase();
+            
+            if (lowerMessage.includes('weather')) {
+                response = "I can help you check the weather. Which city are you interested in?";
+            } 
+            else if (lowerMessage.includes('book') || lowerMessage.includes('ticket')) {
+                response = "I can help you book tickets. Please specify:\n- Your destination\n- Travel dates\n- Number of travelers";
+            }
+            else if (lowerMessage.includes('hotel')) {
+                response = "Looking for hotel recommendations? Let me know:\n- Your destination\n- Check-in/out dates\n- Preferred budget range";
+            }
+            else if (lowerMessage.includes('package') || lowerMessage.includes('tour')) {
+                response = "I can suggest travel packages. What's your preferred destination and budget?";
+            }
+            else {
+                response = "How can I assist you with your travel plans? I can help with:\n- Weather information\n- Ticket booking\n- Hotel recommendations\n- Travel packages";
+            }
+
+            // Show AI response with a small delay to feel more natural
+            setTimeout(() => {
+                appendMessage(response, 'ai');
+                userInput.disabled = false;
+                userInput.focus();
+            }, 500);
+        }
+    </script>```javascript
+// Add a function to handle user input and generate AI responses
+async function handleUserInput(message) {
+    const lowerMessage = message.toLowerCase();
+    let response = '';
+
+    // Define a dictionary to map keywords to responses
+    const responses = {
+        'weather': "I can help you check the weather. Which city are you interested in?",
+        'book': "I can help you book tickets. Please specify:\n- Your destination\n- Travel dates\n- Number of travelers",
+        'ticket': "I can help you book tickets. Please specify:\n- Your destination\n- Travel dates\n- Number of travelers",
+        'hotel': "Looking for hotel recommendations? Let me know:\n- Your destination\n- Check-in/out dates\n- Preferred budget range",
+        'package': "I can suggest travel packages. What's your preferred destination and budget?",
+        'tour': "I can suggest travel packages. What's your preferred destination and budget?",
+    };
+
+    // Check if the message contains any of the keywords
+    for (const keyword in responses) {
+        if (lowerMessage.includes(keyword)) {
+            response = responses[keyword];
+            break;
+        }
+    }
+
+    // If no keyword is found, provide a default response
+    if (!response) {
+        response = "How can I assist you with your travel plans? I can help with:\n- Weather information\n- Ticket booking\n- Hotel recommendations\n- Travel packages";
+    }
+
+    return response;
+}
+
+// Modify the sendMessage function to use the new handleUserInput function
+async function sendMessage() {
+    const userInput = document.getElementById('userInput');
+    const message = userInput.value.trim();
+
+    if (message === '') return;
+
+    // Disable input while processing
+    userInput.disabled = true;
+
+    // Show user message
+    appendMessage(message, 'user');
+    userInput.value = '';
+
+    // Generate response using the handleUserInput function
+    const response = await handleUserInput(message);
+
+    // Show AI response with a small delay to feel more natural
+    setTimeout(() => {
+        appendMessage(response, 'ai');
+        userInput.disabled = false;
+        userInput.focus();
+    }, 500);
+}
+```

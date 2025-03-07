@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Get Contacts</title>
+    <script>
+        function fetchContacts() {
+            fetch('get_contacts.php')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    const contactsList = document.getElementById('contacts');
+                    contactsList.innerHTML = '';
+                    data.forEach(contact => {
+                        const li = document.createElement('li');
+                        li.textContent = `${contact.first_name} ${contact.last_name} - ${contact.email}`;
+                        contactsList.appendChild(li);
+                    });
+                })
+                .catch(error => console.error('Error fetching contacts:', error));
+        }
+    </script>
+</head>
+<body>
+    <h1>Contact List</h1>
+    <button onclick="fetchContacts()">Fetch Contacts</button>
+    <ul id="contacts"></ul>
+</body>
+</html>
