@@ -1,3 +1,10 @@
 {
-    "liveServer.settings.port": 5510
+    "liveServer.settings.port": 5512,
+    "bookmarks.saveBookmarksInProject": true,
+    "php.suggest.basic": true,
+    "php.validate.enable": true,
+    "php.completion.showParameters": true,
+    "php.docblock.classSnippet": {
+        
+    }
 }

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flights - Tour & Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>Tour & Travel</h1>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="indexbooking.html">Home</a></li>
+                        <li><a href="hotels.html">Hotels</a></li>
+                        <li><a href="flights.html" class="active">Flights</a></li>
+                        <li><a href="transport.html">Transport</a></li>
+                        <li><a href="rentals.html">Car Rentals</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <!-- <a href="login.html" class="btn btn-outline">Log In</a>
+                    <a href="register.html" class="btn btn-primary">Sign Up</a> -->
+                </div>
+            </div>
+        </div>
+    </header>
+<br>
+<br>
+<br>
+<br>
+    <section class="flights-header">
+        <div class="container">
+            <h1>Flight Search Results</h1>
+            <div id="search-summary"></div>
+        </div>
+        <br>
+        <br>
+    </section>
+    <br>
+    <br>
+    <div class="container">
+        <div class="flights-content">
+            <aside class="filters-sidebar">
+                <div class="filter-card">
+                    <h3>Filter Flights</h3>
+                    <div class="filter-group">
+                        <h4>Price Range</h4>
+                        <input type="range" min="1000" max="50000" value="25000" class="price-slider">
+                        <div class="price-range">
+                            <span>₹1,000</span>
+                            <span>₹50,000</span>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Airlines</h4>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox"> Air India</label>
+                            <label><input type="checkbox"> IndiGo</label>
+                            <label><input type="checkbox"> SpiceJet</label>
+                            <label><input type="checkbox"> Vistara</label>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Departure Time</h4>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox"> Morning (6AM - 12PM)</label>
+                            <label><input type="checkbox"> Afternoon (12PM - 6PM)</label>
+                            <label><input type="checkbox"> Evening (6PM - 12AM)</label>
+                            <label><input type="checkbox"> Night (12AM - 6AM)</label>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <br>
+            <br>
+            <main class="flights-list">
+                <div id="flights-results">
+                    <!-- Flight results will be populated here -->
+                    <p>Loading flight results...</p>
+                </div>
+            </main>
+        </div>
+    </div>
+    <br>
+    <br>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const searchSummary = document.getElementById('search-summary');
+            const flightsResults = document.getElementById('flights-results');
+
+            // Display search parameters
+            if (params.has('from') && params.has('to')) {
+                searchSummary.innerHTML = `
+                    <p>
+                        <strong>${params.get('from')}</strong> to 
+                        <strong>${params.get('to')}</strong><br>
+                        ${params.get('departureDate')} 
+                        ${params.get('returnDate') ? ' - ' + params.get('returnDate') : ''}<br>
+                        ${params.get('travelers')} · ${params.get('cabinClass')}
+                    </p>
+                `;
+                // Display sample flight results
+                flightsResults.innerHTML = `
+                    <div class="flight-card">
+                        <div class="airline-info">
+                            <img src="https://logos-airline.com/wp-content/uploads/2023/02/Air-India-Logo.png" alt="Air India">
+                            <span>Air India AI-203</span>
+                        </div>
+                        <div class="flight-details">
+                            <div class="departure">
+                                <h3>06:00</h3>
+                                <p>${params.get('from')}</p>
+                            </div>
+                            <div class="flight-duration">
+                                <span class="duration">2h 30m</span>
+                                <div class="flight-line"></div>
+                                <span class="flight-type">Non-stop</span>
+                            </div>
+                            <div class="arrival">
+                                <h3>08:30</h3>
+                                <p>${params.get('to')}</p>
+                            </div>
+                        </div>
+                        <div class="price-section">
+                            <div class="price">₹4,999</div>
+                            <button class="btn btn-primary">Select</button>
+                        </div>
+                    </div>
+
+                    <div class="flight-card">
+                        <div class="airline-info">
+                            <img src="https://logos-airline.com/wp-content/uploads/2023/02/IndiGo-Logo.png" alt="IndiGo">
+                            <span>IndiGo 6E-345</span>
+                        </div>
+                        <div class="flight-details">
+                            <div class="departure">
+                                <h3>08:45</h3>
+                                <p>${params.get('from')}</p>
+                            </div>
+                            <div class="flight-duration">
+                                <span class="duration">2h 15m</span>
+                                <div class="flight-line"></div>
+                                <span class="flight-type">Non-stop</span>
+                            </div>
+                            <div class="arrival">
+                                <h3>11:00</h3>
+                                <p>${params.get('to')}</p>
+                            </div>
+                        </div>
+                        <div class="price-section">
+                            <div class="price">₹5,499</div>
+                            <button class="btn btn-primary">Select</button>
+                        </div>
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

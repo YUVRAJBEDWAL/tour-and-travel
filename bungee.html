@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bungee Jumping - Tour & Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .bungee-hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/bungee-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .bungee-packages {
+            padding: 5rem 9%;
+            background: #f5f5f5;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .package-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .package-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .package-details {
+            padding: 20px;
+        }
+
+        .package-details h3 {
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .package-details p {
+            font-size: 1.6rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 2.4rem;
+            color: #219150;
+            font-weight: bold;
+        }
+
+        .safety-section {
+            background: #fff;
+            padding: 5rem 9%;
+        }
+
+        .safety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .safety-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .safety-item i {
+            font-size: 4rem;
+            color: #219150;
+            margin-bottom: 1rem;
+        }
+
+        .booking-btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: #219150;
+            color: white;
+            font-size: 1.7rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .booking-btn:hover {
+            background: #1a7340;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">
+            <i class="fas fa-hiking"></i> 
+            <span class="logo-text">Tour & Travel</span>
+        </a>
+        
+        <nav class="navbar">
+            <div id="nav-close" class="fas fa-times"></div>
+            <a href="index.html">home</a>
+            <a href="#packages">packages</a>
+            <a href="#safety">safety</a>
+            <a href="#booking">booking</a>
+        </nav>
+    </header>
+
+    <section class="bungee-hero">
+        <div class="content">
+            <h1 style="font-size: 5rem;">Experience the Ultimate Thrill</h1>
+            <p style="font-size: 2rem; margin: 2rem 0;">Take a leap of faith and experience the adrenaline rush of bungee jumping</p>
+            <a href="#packages" class="booking-btn">View Packages</a>
+        </div>
+    </section>
+
+    <section class="bungee-packages" id="packages">
+        <h2 class="heading">Our Bungee Packages</h2>
+        <div class="package-card">
+            <div class="package-image">
+                <img src="images/bungee1.jpg" alt="Beginner Bungee">
+            </div>
+            <div class="package-details">
+                <h3>Beginner's Jump</h3>
+                <p>Perfect for first-time jumpers. Includes training session and safety briefing.</p>
+                <div class="price">1199</div>
+                <a href="#booking" class="booking-btn">Book Now</a>
+            </div>
+        </div>
+
+        <div class="package-card">
+            <div class="package-image">
+                <img src="images/bungee2.jpg" alt="Pro Bungee">
+            </div>
+            <div class="package-details">
+                <h3>Pro Jump Experience</h3>
+                <p>Higher altitude jump for experienced jumpers with video recording.</p>
+                <div class="price">2149</div>
+                <a href="#booking" class="booking-btn">Book Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="safety-section" id="safety">
+        <h2 class="heading">Safety First</h2>
+        <div class="safety-grid">
+            <div class="safety-item">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Certified Equipment</h3>
+                <p>All our equipment meets international safety standards</p>
+            </div>
+            <div class="safety-item">
+                <i class="fas fa-user-shield"></i>
+                <h3>Expert Instructors</h3>
+                <p>Trained and certified professional instructors</p>
+            </div>
+            <div class="safety-item">
+                <i class="fas fa-clipboard-check"></i>
+                <h3>Safety Briefing</h3>
+                <p>Comprehensive safety briefing before every jump</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

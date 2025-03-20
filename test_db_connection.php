@@ -6,7 +6,7 @@ if (!$db) {
     echo "Database connection failed: " . SQLite3::lastErrorMsg();
 } else {
     echo "Database connection successful.";
-    
+
     // Test retrieving contacts
     $result = $db->query('SELECT * FROM contacts');
     $contacts = [];

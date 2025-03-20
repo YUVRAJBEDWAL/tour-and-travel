@@ -1,0 +1,762 @@
+[debug] [2025-03-20T13:30:29.974Z] ----------------------------------------------------------------------
+[debug] [2025-03-20T13:30:29.983Z] Command:       /opt/homebrew/Cellar/node/23.9.0/bin/node /opt/homebrew/bin/firebase init hosting
+[debug] [2025-03-20T13:30:29.983Z] CLI Version:   13.34.0
+[debug] [2025-03-20T13:30:29.983Z] Platform:      darwin
+[debug] [2025-03-20T13:30:29.984Z] Node Version:  v23.9.0
+[debug] [2025-03-20T13:30:29.984Z] Time:          Thu Mar 20 2025 19:00:29 GMT+0530 (India Standard Time)
+[debug] [2025-03-20T13:30:29.984Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-03-20T13:30:30.127Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-03-20T13:30:30.128Z] > authorizing via signed-in user (yuvrajpri143@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/yuvrajbedwal/Desktop/TRAVEL 106866
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-03-20T13:30:30.131Z] Using project from CLI flag: travel-booking-106866
+[debug] [2025-03-20T13:30:30.131Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:30:30.132Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:30:30.132Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:30:31.297Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 404
+[debug] [2025-03-20T13:30:31.297Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[debug] [2025-03-20T13:30:31.298Z] Couldn't get project info from firedata for travel-booking-106866, trying resource manager. Original error: FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 had HTTP Error: 404, Requested entity was not found.
+[debug] [2025-03-20T13:30:31.298Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:30:31.298Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:30:31.298Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:30:32.286Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 200
+[debug] [2025-03-20T13:30:32.286Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 {"projectNumber":"399255603855","projectId":"travel-booking-106866","lifecycleState":"ACTIVE","name":"Travel Booking App","createTime":"2025-03-20T13:26:38.014775Z"}
+[info] i  Using project travel-booking-106866 
+[info] 
+=== Hosting Setup
+[debug] [2025-03-20T13:30:32.297Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:30:32.297Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:30:32.297Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:30:33.183Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 404
+[debug] [2025-03-20T13:30:33.183Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[debug] [2025-03-20T13:30:33.183Z] Couldn't get project info from firedata for travel-booking-106866, trying resource manager. Original error: FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 had HTTP Error: 404, Requested entity was not found.
+[debug] [2025-03-20T13:30:33.184Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:30:33.184Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:30:33.184Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:30:33.617Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 200
+[debug] [2025-03-20T13:30:33.617Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 {"projectNumber":"399255603855","projectId":"travel-booking-106866","lifecycleState":"ACTIVE","name":"Travel Booking App","createTime":"2025-03-20T13:26:38.014775Z"}
+[debug] [2025-03-20T13:30:33.617Z] the default site does not exist on the Firebase project; asking Hosting.
+[debug] [2025-03-20T13:30:33.618Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:30:33.618Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:30:33.618Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites pageToken=&pageSize=10
+[debug] [2025-03-20T13:30:34.947Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites 200
+[debug] [2025-03-20T13:30:34.947Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites {}
+[debug] [2025-03-20T13:30:43.532Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:30:43.532Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:30:43.532Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:30:45.432Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 200
+[debug] [2025-03-20T13:30:45.432Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 {"projectNumber":"399255603855","projectId":"travel-booking-106866","lifecycleState":"ACTIVE","name":"Travel Booking App","createTime":"2025-03-20T13:26:38.014775Z"}
+[debug] [2025-03-20T13:30:45.432Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:30:45.432Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:30:45.433Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=travel-booking-106866&validateOnly=true
+[debug] [2025-03-20T13:30:45.433Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:30:47.197Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 200
+[debug] [2025-03-20T13:30:47.198Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"name":"projects/399255603855/sites/travel-booking-106866","defaultUrl":"https://travel-booking-106866.web.app","type":"DEFAULT_SITE"}
+[debug] [2025-03-20T13:31:02.618Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:31:02.619Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:31:02.619Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=travel-booking-106866
+[debug] [2025-03-20T13:31:02.619Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:31:05.527Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 404
+[debug] [2025-03-20T13:31:05.527Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[warn] ⚠  Request to https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites?siteId=travel-booking-106866 had HTTP Error: 404, Requested entity was not found. 
+[debug] [2025-03-20T13:32:41.660Z] ----------------------------------------------------------------------
+[debug] [2025-03-20T13:32:41.665Z] Command:       /opt/homebrew/Cellar/node/23.9.0/bin/node /opt/homebrew/bin/firebase init hosting
+[debug] [2025-03-20T13:32:41.666Z] CLI Version:   13.34.0
+[debug] [2025-03-20T13:32:41.666Z] Platform:      darwin
+[debug] [2025-03-20T13:32:41.666Z] Node Version:  v23.9.0
+[debug] [2025-03-20T13:32:41.666Z] Time:          Thu Mar 20 2025 19:02:41 GMT+0530 (India Standard Time)
+[debug] [2025-03-20T13:32:41.666Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-03-20T13:32:41.801Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-03-20T13:32:41.802Z] > authorizing via signed-in user (yuvrajpri143@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/yuvrajbedwal/Desktop/TRAVEL 106866
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-03-20T13:32:41.804Z] Using project from CLI flag: travel-booking-106866
+[debug] [2025-03-20T13:32:41.804Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:32:41.804Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:32:41.805Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:32:45.686Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 404
+[debug] [2025-03-20T13:32:45.686Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[debug] [2025-03-20T13:32:45.688Z] Couldn't get project info from firedata for travel-booking-106866, trying resource manager. Original error: FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 had HTTP Error: 404, Requested entity was not found.
+[debug] [2025-03-20T13:32:45.688Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:32:45.688Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:32:45.688Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:32:47.401Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 200
+[debug] [2025-03-20T13:32:47.401Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 {"projectNumber":"399255603855","projectId":"travel-booking-106866","lifecycleState":"ACTIVE","name":"Travel Booking App","createTime":"2025-03-20T13:26:38.014775Z"}
+[info] i  Using project travel-booking-106866 
+[info] 
+=== Hosting Setup
+[debug] [2025-03-20T13:32:47.413Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:32:47.413Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:32:47.413Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:32:48.438Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 404
+[debug] [2025-03-20T13:32:48.439Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[debug] [2025-03-20T13:32:48.439Z] Couldn't get project info from firedata for travel-booking-106866, trying resource manager. Original error: FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 had HTTP Error: 404, Requested entity was not found.
+[debug] [2025-03-20T13:32:48.439Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:32:48.439Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:32:48.439Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:32:48.806Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 200
+[debug] [2025-03-20T13:32:48.807Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 {"projectNumber":"399255603855","projectId":"travel-booking-106866","lifecycleState":"ACTIVE","name":"Travel Booking App","createTime":"2025-03-20T13:26:38.014775Z"}
+[debug] [2025-03-20T13:32:48.807Z] the default site does not exist on the Firebase project; asking Hosting.
+[debug] [2025-03-20T13:32:48.807Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:32:48.807Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:32:48.808Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites pageToken=&pageSize=10
+[debug] [2025-03-20T13:32:50.070Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites 200
+[debug] [2025-03-20T13:32:50.071Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites {}
+[debug] [2025-03-20T13:32:58.934Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:32:58.934Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:32:58.935Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:33:00.822Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 200
+[debug] [2025-03-20T13:33:00.823Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 {"projectNumber":"399255603855","projectId":"travel-booking-106866","lifecycleState":"ACTIVE","name":"Travel Booking App","createTime":"2025-03-20T13:26:38.014775Z"}
+[debug] [2025-03-20T13:33:00.824Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:33:00.824Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:33:00.825Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=travel-booking-106866&validateOnly=true
+[debug] [2025-03-20T13:33:00.825Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:33:02.341Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 200
+[debug] [2025-03-20T13:33:02.341Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"name":"projects/399255603855/sites/travel-booking-106866","defaultUrl":"https://travel-booking-106866.web.app","type":"DEFAULT_SITE"}
+[debug] [2025-03-20T13:33:11.766Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:33:11.767Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:33:11.767Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=travel-booking-106866
+[debug] [2025-03-20T13:33:11.767Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:33:13.700Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 404
+[debug] [2025-03-20T13:33:13.701Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[warn] ⚠  Request to https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites?siteId=travel-booking-106866 had HTTP Error: 404, Requested entity was not found. 
+[debug] [2025-03-20T13:35:20.357Z] ----------------------------------------------------------------------
+[debug] [2025-03-20T13:35:20.364Z] Command:       /opt/homebrew/Cellar/node/23.9.0/bin/node /opt/homebrew/bin/firebase init hosting
+[debug] [2025-03-20T13:35:20.364Z] CLI Version:   13.34.0
+[debug] [2025-03-20T13:35:20.364Z] Platform:      darwin
+[debug] [2025-03-20T13:35:20.364Z] Node Version:  v23.9.0
+[debug] [2025-03-20T13:35:20.365Z] Time:          Thu Mar 20 2025 19:05:20 GMT+0530 (India Standard Time)
+[debug] [2025-03-20T13:35:20.365Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-03-20T13:35:20.500Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-03-20T13:35:20.501Z] > authorizing via signed-in user (yuvrajpri143@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/yuvrajbedwal/Desktop/TRAVEL 106866
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-03-20T13:35:20.503Z] Using project from CLI flag: travel-booking-106866
+[debug] [2025-03-20T13:35:20.504Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:35:20.504Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:35:20.505Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:35:21.503Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 404
+[debug] [2025-03-20T13:35:21.505Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[debug] [2025-03-20T13:35:21.506Z] Couldn't get project info from firedata for travel-booking-106866, trying resource manager. Original error: FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 had HTTP Error: 404, Requested entity was not found.
+[debug] [2025-03-20T13:35:21.506Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:35:21.506Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:35:21.506Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:35:22.364Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 200
+[debug] [2025-03-20T13:35:22.364Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 {"projectNumber":"399255603855","projectId":"travel-booking-106866","lifecycleState":"ACTIVE","name":"Travel Booking App","createTime":"2025-03-20T13:26:38.014775Z"}
+[info] i  Using project travel-booking-106866 
+[info] 
+=== Hosting Setup
+[debug] [2025-03-20T13:35:22.374Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:35:22.374Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:35:22.374Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:35:23.255Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 404
+[debug] [2025-03-20T13:35:23.255Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[debug] [2025-03-20T13:35:23.255Z] Couldn't get project info from firedata for travel-booking-106866, trying resource manager. Original error: FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 had HTTP Error: 404, Requested entity was not found.
+[debug] [2025-03-20T13:35:23.256Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:35:23.256Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:35:23.256Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:35:23.639Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 200
+[debug] [2025-03-20T13:35:23.640Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 {"projectNumber":"399255603855","projectId":"travel-booking-106866","lifecycleState":"ACTIVE","name":"Travel Booking App","createTime":"2025-03-20T13:26:38.014775Z"}
+[debug] [2025-03-20T13:35:23.640Z] the default site does not exist on the Firebase project; asking Hosting.
+[debug] [2025-03-20T13:35:23.640Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:35:23.640Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:35:23.641Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites pageToken=&pageSize=10
+[debug] [2025-03-20T13:35:25.431Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites 200
+[debug] [2025-03-20T13:35:25.432Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites {}
+[debug] [2025-03-20T13:35:30.316Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:35:30.316Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:35:30.316Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:35:32.051Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 200
+[debug] [2025-03-20T13:35:32.051Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 {"projectNumber":"399255603855","projectId":"travel-booking-106866","lifecycleState":"ACTIVE","name":"Travel Booking App","createTime":"2025-03-20T13:26:38.014775Z"}
+[debug] [2025-03-20T13:35:32.052Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:35:32.052Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:35:32.052Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=travel-booking-106866&validateOnly=true
+[debug] [2025-03-20T13:35:32.052Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:35:33.606Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 200
+[debug] [2025-03-20T13:35:33.606Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"name":"projects/399255603855/sites/travel-booking-106866","defaultUrl":"https://travel-booking-106866.web.app","type":"DEFAULT_SITE"}
+[debug] [2025-03-20T13:36:19.498Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:36:19.498Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:36:19.498Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=tourandtravels
+[debug] [2025-03-20T13:36:19.498Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:36:20.896Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 404
+[debug] [2025-03-20T13:36:20.896Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[warn] ⚠  Request to https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites?siteId=tourandtravels had HTTP Error: 404, Requested entity was not found. 
+[debug] [2025-03-20T13:36:49.342Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:36:49.342Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:36:49.343Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=tourandtravel
+[debug] [2025-03-20T13:36:49.343Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:36:50.816Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 400
+[debug] [2025-03-20T13:36:50.817Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":400,"message":"Invalid name: `tourandtravel` is reserved by another project; try something like `tourandtravel-cce01` instead","status":"FAILED_PRECONDITION"}}
+[warn] ⚠  Invalid name: `tourandtravel` is reserved by another project; try something like `tourandtravel-cce01` instead 
+[debug] [2025-03-20T13:36:55.067Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:36:55.067Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:36:55.068Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=tourandtravel-cce01
+[debug] [2025-03-20T13:36:55.068Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:36:56.085Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 404
+[debug] [2025-03-20T13:36:56.085Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[warn] ⚠  Request to https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites?siteId=tourandtravel-cce01 had HTTP Error: 404, Requested entity was not found. 
+[debug] [2025-03-20T13:37:36.843Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:37:36.844Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:37:36.844Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=www.tourandtravel-cce01.com
+[debug] [2025-03-20T13:37:36.844Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:37:38.139Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 400
+[debug] [2025-03-20T13:37:38.139Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":400,"message":"Invalid name: `www.tourandtravel-cce01.com` is invalid; try something like `tourandtravel-cce01-com` instead","status":"INVALID_ARGUMENT"}}
+[warn] ⚠  Invalid name: `www.tourandtravel-cce01.com` is invalid; try something like `tourandtravel-cce01-com` instead 
+[debug] [2025-03-20T13:37:44.460Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:37:44.460Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:37:44.460Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=tourandtravel-cce01-com
+[debug] [2025-03-20T13:37:44.460Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:37:45.871Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 404
+[debug] [2025-03-20T13:37:45.872Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[warn] ⚠  Request to https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites?siteId=tourandtravel-cce01-com had HTTP Error: 404, Requested entity was not found. 
+[debug] [2025-03-20T13:38:36.249Z] ----------------------------------------------------------------------
+[debug] [2025-03-20T13:38:36.257Z] Command:       /opt/homebrew/Cellar/node/23.9.0/bin/node /opt/homebrew/bin/firebase init hosting
+[debug] [2025-03-20T13:38:36.258Z] CLI Version:   13.34.0
+[debug] [2025-03-20T13:38:36.258Z] Platform:      darwin
+[debug] [2025-03-20T13:38:36.258Z] Node Version:  v23.9.0
+[debug] [2025-03-20T13:38:36.258Z] Time:          Thu Mar 20 2025 19:08:36 GMT+0530 (India Standard Time)
+[debug] [2025-03-20T13:38:36.259Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-03-20T13:38:36.395Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-03-20T13:38:36.396Z] > authorizing via signed-in user (yuvrajpri143@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/yuvrajbedwal/Desktop/TRAVEL 106866
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-03-20T13:38:36.398Z] Using project from CLI flag: travel-booking-106866
+[debug] [2025-03-20T13:38:36.398Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:38:36.398Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:38:36.399Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:38:38.636Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 404
+[debug] [2025-03-20T13:38:38.636Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[debug] [2025-03-20T13:38:38.637Z] Couldn't get project info from firedata for travel-booking-106866, trying resource manager. Original error: FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 had HTTP Error: 404, Requested entity was not found.
+[debug] [2025-03-20T13:38:38.637Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:38:38.637Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:38:38.637Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:38:40.623Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 200
+[debug] [2025-03-20T13:38:40.624Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 {"projectNumber":"399255603855","projectId":"travel-booking-106866","lifecycleState":"ACTIVE","name":"Travel Booking App","createTime":"2025-03-20T13:26:38.014775Z"}
+[info] i  Using project travel-booking-106866 
+[info] 
+=== Hosting Setup
+[debug] [2025-03-20T13:38:40.632Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:38:40.633Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:38:40.633Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:38:41.609Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 404
+[debug] [2025-03-20T13:38:41.609Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[debug] [2025-03-20T13:38:41.610Z] Couldn't get project info from firedata for travel-booking-106866, trying resource manager. Original error: FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 had HTTP Error: 404, Requested entity was not found.
+[debug] [2025-03-20T13:38:41.610Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:38:41.610Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:38:41.610Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:38:42.096Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 200
+[debug] [2025-03-20T13:38:42.096Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 {"projectNumber":"399255603855","projectId":"travel-booking-106866","lifecycleState":"ACTIVE","name":"Travel Booking App","createTime":"2025-03-20T13:26:38.014775Z"}
+[debug] [2025-03-20T13:38:42.097Z] the default site does not exist on the Firebase project; asking Hosting.
+[debug] [2025-03-20T13:38:42.097Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:38:42.097Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:38:42.097Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites pageToken=&pageSize=10
+[debug] [2025-03-20T13:38:43.315Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites 200
+[debug] [2025-03-20T13:38:43.315Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites {}
+[debug] [2025-03-20T13:38:52.925Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:38:52.926Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:38:52.926Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:38:54.648Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 200
+[debug] [2025-03-20T13:38:54.648Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 {"projectNumber":"399255603855","projectId":"travel-booking-106866","lifecycleState":"ACTIVE","name":"Travel Booking App","createTime":"2025-03-20T13:26:38.014775Z"}
+[debug] [2025-03-20T13:38:54.649Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:38:54.649Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:38:54.649Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=travel-booking-106866&validateOnly=true
+[debug] [2025-03-20T13:38:54.649Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:38:55.999Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 200
+[debug] [2025-03-20T13:38:55.999Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"name":"projects/399255603855/sites/travel-booking-106866","defaultUrl":"https://travel-booking-106866.web.app","type":"DEFAULT_SITE"}
+[debug] [2025-03-20T13:39:02.308Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:39:02.309Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:39:02.309Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=travel-booking-106866
+[debug] [2025-03-20T13:39:02.309Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:39:03.647Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 404
+[debug] [2025-03-20T13:39:03.647Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[warn] ⚠  Request to https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites?siteId=travel-booking-106866 had HTTP Error: 404, Requested entity was not found. 
+[debug] [2025-03-20T13:39:28.429Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:39:28.430Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:39:28.430Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=travel-booking-106866
+[debug] [2025-03-20T13:39:28.430Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:39:30.588Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 404
+[debug] [2025-03-20T13:39:30.588Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[warn] ⚠  Request to https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites?siteId=travel-booking-106866 had HTTP Error: 404, Requested entity was not found. 
+[debug] [2025-03-20T13:39:37.032Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:39:37.032Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:39:37.032Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=web
+[debug] [2025-03-20T13:39:37.032Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:39:38.257Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 400
+[debug] [2025-03-20T13:39:38.257Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":400,"message":"Invalid name: `web` is reserved by another project; try something like `web-48977` instead","status":"FAILED_PRECONDITION"}}
+[warn] ⚠  Invalid name: `web` is reserved by another project; try something like `web-48977` instead 
+[debug] [2025-03-20T13:39:53.753Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:39:53.754Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:39:53.754Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=tour
+[debug] [2025-03-20T13:39:53.755Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:39:55.113Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 400
+[debug] [2025-03-20T13:39:55.113Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":400,"message":"Invalid name: `tour` is reserved by another project; try something like `tour-6d2e6` instead","status":"FAILED_PRECONDITION"}}
+[warn] ⚠  Invalid name: `tour` is reserved by another project; try something like `tour-6d2e6` instead 
+[debug] [2025-03-20T13:40:08.477Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:40:08.477Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:40:08.478Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=travel-booking-106866
+[debug] [2025-03-20T13:40:08.478Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:40:10.167Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 404
+[debug] [2025-03-20T13:40:10.167Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[warn] ⚠  Request to https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites?siteId=travel-booking-106866 had HTTP Error: 404, Requested entity was not found. 
+[debug] [2025-03-20T13:40:13.490Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:40:13.490Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:40:13.490Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=travel-booking-106866
+[debug] [2025-03-20T13:40:13.490Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:40:14.272Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 404
+[debug] [2025-03-20T13:40:14.272Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[warn] ⚠  Request to https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites?siteId=travel-booking-106866 had HTTP Error: 404, Requested entity was not found. 
+[debug] [2025-03-20T13:40:47.593Z] ----------------------------------------------------------------------
+[debug] [2025-03-20T13:40:47.596Z] Command:       /opt/homebrew/Cellar/node/23.9.0/bin/node /opt/homebrew/bin/firebase init hosting
+[debug] [2025-03-20T13:40:47.596Z] CLI Version:   13.34.0
+[debug] [2025-03-20T13:40:47.597Z] Platform:      darwin
+[debug] [2025-03-20T13:40:47.597Z] Node Version:  v23.9.0
+[debug] [2025-03-20T13:40:47.597Z] Time:          Thu Mar 20 2025 19:10:47 GMT+0530 (India Standard Time)
+[debug] [2025-03-20T13:40:47.597Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-03-20T13:40:47.739Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-03-20T13:40:47.740Z] > authorizing via signed-in user (yuvrajpri143@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/yuvrajbedwal/Desktop/TRAVEL 106866
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-03-20T13:40:47.742Z] Using project from CLI flag: travel-booking-106866
+[debug] [2025-03-20T13:40:47.743Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:40:47.743Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:40:47.744Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:40:48.701Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 404
+[debug] [2025-03-20T13:40:48.701Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[debug] [2025-03-20T13:40:48.702Z] Couldn't get project info from firedata for travel-booking-106866, trying resource manager. Original error: FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 had HTTP Error: 404, Requested entity was not found.
+[debug] [2025-03-20T13:40:48.702Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:40:48.702Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:40:48.702Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:40:50.411Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 200
+[debug] [2025-03-20T13:40:50.411Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 {"projectNumber":"399255603855","projectId":"travel-booking-106866","lifecycleState":"ACTIVE","name":"Travel Booking App","createTime":"2025-03-20T13:26:38.014775Z"}
+[info] i  Using project travel-booking-106866 
+[info] 
+=== Hosting Setup
+[debug] [2025-03-20T13:40:50.422Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:40:50.422Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:40:50.422Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:40:50.991Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 404
+[debug] [2025-03-20T13:40:50.991Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[debug] [2025-03-20T13:40:50.991Z] Couldn't get project info from firedata for travel-booking-106866, trying resource manager. Original error: FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 had HTTP Error: 404, Requested entity was not found.
+[debug] [2025-03-20T13:40:50.991Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:40:50.991Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:40:50.991Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:40:51.733Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 200
+[debug] [2025-03-20T13:40:51.734Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 {"projectNumber":"399255603855","projectId":"travel-booking-106866","lifecycleState":"ACTIVE","name":"Travel Booking App","createTime":"2025-03-20T13:26:38.014775Z"}
+[debug] [2025-03-20T13:40:51.734Z] the default site does not exist on the Firebase project; asking Hosting.
+[debug] [2025-03-20T13:40:51.734Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:40:51.734Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:40:51.735Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites pageToken=&pageSize=10
+[debug] [2025-03-20T13:40:53.160Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites 200
+[debug] [2025-03-20T13:40:53.160Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites {}
+[debug] [2025-03-20T13:41:06.050Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:41:06.050Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:41:06.050Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:41:08.494Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 200
+[debug] [2025-03-20T13:41:08.494Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 {"projectNumber":"399255603855","projectId":"travel-booking-106866","lifecycleState":"ACTIVE","name":"Travel Booking App","createTime":"2025-03-20T13:26:38.014775Z"}
+[debug] [2025-03-20T13:41:08.494Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:41:08.494Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:41:08.495Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=travel-booking-106866&validateOnly=true
+[debug] [2025-03-20T13:41:08.495Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:41:10.379Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 200
+[debug] [2025-03-20T13:41:10.379Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"name":"projects/399255603855/sites/travel-booking-106866","defaultUrl":"https://travel-booking-106866.web.app","type":"DEFAULT_SITE"}
+[debug] [2025-03-20T13:41:18.761Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:41:18.761Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:41:18.761Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=travel-app-5d8e9
+[debug] [2025-03-20T13:41:18.761Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:41:20.076Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 404
+[debug] [2025-03-20T13:41:20.076Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[warn] ⚠  Request to https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites?siteId=travel-app-5d8e9 had HTTP Error: 404, Requested entity was not found. 
+[debug] [2025-03-20T13:41:23.106Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:41:23.106Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:41:23.106Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=travel-app-5d8e9
+[debug] [2025-03-20T13:41:23.106Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:41:23.836Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 404
+[debug] [2025-03-20T13:41:23.837Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[warn] ⚠  Request to https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites?siteId=travel-app-5d8e9 had HTTP Error: 404, Requested entity was not found. 
+[debug] [2025-03-20T13:41:59.618Z] ----------------------------------------------------------------------
+[debug] [2025-03-20T13:41:59.622Z] Command:       /opt/homebrew/Cellar/node/23.9.0/bin/node /opt/homebrew/bin/firebase init hosting
+[debug] [2025-03-20T13:41:59.622Z] CLI Version:   13.34.0
+[debug] [2025-03-20T13:41:59.622Z] Platform:      darwin
+[debug] [2025-03-20T13:41:59.622Z] Node Version:  v23.9.0
+[debug] [2025-03-20T13:41:59.623Z] Time:          Thu Mar 20 2025 19:11:59 GMT+0530 (India Standard Time)
+[debug] [2025-03-20T13:41:59.623Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-03-20T13:41:59.771Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-03-20T13:41:59.772Z] > authorizing via signed-in user (yuvrajpri143@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/yuvrajbedwal/Desktop/TRAVEL 106866
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-03-20T13:41:59.774Z] Using project from CLI flag: travel-booking-106866
+[debug] [2025-03-20T13:41:59.774Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:41:59.774Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:41:59.775Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:42:01.183Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 404
+[debug] [2025-03-20T13:42:01.184Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[debug] [2025-03-20T13:42:01.185Z] Couldn't get project info from firedata for travel-booking-106866, trying resource manager. Original error: FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 had HTTP Error: 404, Requested entity was not found.
+[debug] [2025-03-20T13:42:01.185Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:42:01.185Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:42:01.185Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:42:03.012Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 200
+[debug] [2025-03-20T13:42:03.012Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 {"projectNumber":"399255603855","projectId":"travel-booking-106866","lifecycleState":"ACTIVE","name":"Travel Booking App","createTime":"2025-03-20T13:26:38.014775Z"}
+[info] i  Using project travel-booking-106866 
+[info] 
+=== Hosting Setup
+[debug] [2025-03-20T13:42:03.024Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:42:03.024Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:42:03.024Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:42:04.549Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 404
+[debug] [2025-03-20T13:42:04.550Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[debug] [2025-03-20T13:42:04.550Z] Couldn't get project info from firedata for travel-booking-106866, trying resource manager. Original error: FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 had HTTP Error: 404, Requested entity was not found.
+[debug] [2025-03-20T13:42:04.550Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:42:04.550Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:42:04.551Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:42:05.032Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 200
+[debug] [2025-03-20T13:42:05.032Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 {"projectNumber":"399255603855","projectId":"travel-booking-106866","lifecycleState":"ACTIVE","name":"Travel Booking App","createTime":"2025-03-20T13:26:38.014775Z"}
+[debug] [2025-03-20T13:42:05.032Z] the default site does not exist on the Firebase project; asking Hosting.
+[debug] [2025-03-20T13:42:05.033Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:42:05.033Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:42:05.048Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites pageToken=&pageSize=10
+[debug] [2025-03-20T13:42:06.646Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites 200
+[debug] [2025-03-20T13:42:06.646Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites {}
+[debug] [2025-03-20T13:42:06.655Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:42:06.655Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:42:06.656Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:42:07.201Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 200
+[debug] [2025-03-20T13:42:07.202Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 {"projectNumber":"399255603855","projectId":"travel-booking-106866","lifecycleState":"ACTIVE","name":"Travel Booking App","createTime":"2025-03-20T13:26:38.014775Z"}
+[debug] [2025-03-20T13:42:07.202Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:42:07.202Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:42:07.202Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=travel-booking-106866&validateOnly=true
+[debug] [2025-03-20T13:42:07.202Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:42:08.473Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 200
+[debug] [2025-03-20T13:42:08.474Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"name":"projects/399255603855/sites/travel-booking-106866","defaultUrl":"https://travel-booking-106866.web.app","type":"DEFAULT_SITE"}
+[debug] [2025-03-20T13:42:08.483Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:42:08.483Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:42:08.483Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=travel-booking-106866
+[debug] [2025-03-20T13:42:08.483Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:42:09.103Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 404
+[debug] [2025-03-20T13:42:09.104Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[warn] ⚠  Request to https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites?siteId=travel-booking-106866 had HTTP Error: 404, Requested entity was not found. 
+[debug] [2025-03-20T13:42:46.281Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:42:46.285Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:42:46.285Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=travel-booking-portal-2025
+[debug] [2025-03-20T13:42:46.286Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:42:47.915Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 404
+[debug] [2025-03-20T13:42:47.915Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[warn] ⚠  Request to https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites?siteId=travel-booking-portal-2025 had HTTP Error: 404, Requested entity was not found. 
+[debug] [2025-03-20T13:43:19.240Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:43:19.240Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:43:19.241Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=explore-n-go-2025
+[debug] [2025-03-20T13:43:19.241Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:43:20.858Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 404
+[debug] [2025-03-20T13:43:20.859Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[warn] ⚠  Request to https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites?siteId=explore-n-go-2025 had HTTP Error: 404, Requested entity was not found. 
+[debug] [2025-03-20T13:54:41.364Z] ----------------------------------------------------------------------
+[debug] [2025-03-20T13:54:41.371Z] Command:       /opt/homebrew/Cellar/node/23.9.0/bin/node /opt/homebrew/bin/firebase init hosting
+[debug] [2025-03-20T13:54:41.371Z] CLI Version:   13.34.0
+[debug] [2025-03-20T13:54:41.371Z] Platform:      darwin
+[debug] [2025-03-20T13:54:41.371Z] Node Version:  v23.9.0
+[debug] [2025-03-20T13:54:41.372Z] Time:          Thu Mar 20 2025 19:24:41 GMT+0530 (India Standard Time)
+[debug] [2025-03-20T13:54:41.372Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-03-20T13:54:41.506Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-03-20T13:54:41.507Z] > authorizing via signed-in user (yuvrajpri143@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/yuvrajbedwal/Desktop/TRAVEL 106866
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-03-20T13:54:41.508Z] Using project from CLI flag: travel-booking-106866
+[debug] [2025-03-20T13:54:41.509Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:54:41.509Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:54:41.510Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:54:42.967Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 404
+[debug] [2025-03-20T13:54:42.967Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[debug] [2025-03-20T13:54:42.968Z] Couldn't get project info from firedata for travel-booking-106866, trying resource manager. Original error: FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 had HTTP Error: 404, Requested entity was not found.
+[debug] [2025-03-20T13:54:42.968Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:54:42.969Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:54:42.969Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:54:44.856Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 200
+[debug] [2025-03-20T13:54:44.856Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 {"projectNumber":"399255603855","projectId":"travel-booking-106866","lifecycleState":"ACTIVE","name":"Travel Booking App","createTime":"2025-03-20T13:26:38.014775Z"}
+[info] i  Using project travel-booking-106866 
+[info] 
+=== Hosting Setup
+[debug] [2025-03-20T13:54:44.864Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:54:44.865Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:54:44.865Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:54:45.580Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 404
+[debug] [2025-03-20T13:54:45.580Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[debug] [2025-03-20T13:54:45.581Z] Couldn't get project info from firedata for travel-booking-106866, trying resource manager. Original error: FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 had HTTP Error: 404, Requested entity was not found.
+[debug] [2025-03-20T13:54:45.581Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:54:45.581Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:54:45.581Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:54:46.137Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 200
+[debug] [2025-03-20T13:54:46.138Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 {"projectNumber":"399255603855","projectId":"travel-booking-106866","lifecycleState":"ACTIVE","name":"Travel Booking App","createTime":"2025-03-20T13:26:38.014775Z"}
+[debug] [2025-03-20T13:54:46.138Z] the default site does not exist on the Firebase project; asking Hosting.
+[debug] [2025-03-20T13:54:46.139Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:54:46.139Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:54:46.140Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites pageToken=&pageSize=10
+[debug] [2025-03-20T13:54:47.777Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites 200
+[debug] [2025-03-20T13:54:47.777Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites {}
+[debug] [2025-03-20T13:54:54.105Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:54:54.105Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:54:54.106Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T13:54:55.952Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 200
+[debug] [2025-03-20T13:54:55.953Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 {"projectNumber":"399255603855","projectId":"travel-booking-106866","lifecycleState":"ACTIVE","name":"Travel Booking App","createTime":"2025-03-20T13:26:38.014775Z"}
+[debug] [2025-03-20T13:54:55.953Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:54:55.953Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:54:55.954Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=travel-booking-106866&validateOnly=true
+[debug] [2025-03-20T13:54:55.954Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:54:57.603Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 200
+[debug] [2025-03-20T13:54:57.603Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"name":"projects/399255603855/sites/travel-booking-106866","defaultUrl":"https://travel-booking-106866.web.app","type":"DEFAULT_SITE"}
+[debug] [2025-03-20T13:55:10.737Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:55:10.738Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:55:10.738Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=travel-yb-app-2024
+[debug] [2025-03-20T13:55:10.738Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:55:12.202Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 404
+[debug] [2025-03-20T13:55:12.202Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[warn] ⚠  Request to https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites?siteId=travel-yb-app-2024 had HTTP Error: 404, Requested entity was not found. 
+[debug] [2025-03-20T13:56:42.608Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:56:42.608Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:56:42.609Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=travel-yb-app-2024-0927-1430
+[debug] [2025-03-20T13:56:42.609Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:56:44.058Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 404
+[debug] [2025-03-20T13:56:44.059Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[warn] ⚠  Request to https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites?siteId=travel-yb-app-2024-0927-1430 had HTTP Error: 404, Requested entity was not found. 
+[debug] [2025-03-20T13:56:53.072Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:56:53.073Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:56:53.073Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=travel-yb-app-2024-0927-1430lll
+[debug] [2025-03-20T13:56:53.073Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:56:54.539Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 404
+[debug] [2025-03-20T13:56:54.539Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[warn] ⚠  Request to https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites?siteId=travel-yb-app-2024-0927-1430lll had HTTP Error: 404, Requested entity was not found. 
+[debug] [2025-03-20T13:58:15.523Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:58:15.525Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:58:15.527Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=travel-booking-app-a1b2c3d4
+[debug] [2025-03-20T13:58:15.527Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:58:17.202Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 404
+[debug] [2025-03-20T13:58:17.202Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[warn] ⚠  Request to https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites?siteId=travel-booking-app-a1b2c3d4 had HTTP Error: 404, Requested entity was not found. 
+[debug] [2025-03-20T13:58:47.551Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:58:47.557Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:58:47.557Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=travel-booking-app-7k8l9m0n
+[debug] [2025-03-20T13:58:47.557Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:58:48.954Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 404
+[debug] [2025-03-20T13:58:48.954Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[warn] ⚠  Request to https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites?siteId=travel-booking-app-7k8l9m0n had HTTP Error: 404, Requested entity was not found. 
+[debug] [2025-03-20T13:58:59.162Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:58:59.163Z] Checked if tokens are valid: true, expires at: 1742480533844
+[debug] [2025-03-20T13:58:59.163Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites siteId=travel-booking-app-7k8l9m0nyuy
+[debug] [2025-03-20T13:58:59.163Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"appId":""}
+[debug] [2025-03-20T13:59:00.480Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites 404
+[debug] [2025-03-20T13:59:00.480Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[warn] ⚠  Request to https://firebasehosting.googleapis.com/v1beta1/projects/399255603855/sites?siteId=travel-booking-app-7k8l9m0nyuy had HTTP Error: 404, Requested entity was not found. 
+[debug] [2025-03-20T14:40:43.196Z] ----------------------------------------------------------------------
+[debug] [2025-03-20T14:40:43.204Z] Command:       /opt/homebrew/Cellar/node/23.9.0/bin/node /opt/homebrew/bin/firebase init hosting
+[debug] [2025-03-20T14:40:43.205Z] CLI Version:   13.34.0
+[debug] [2025-03-20T14:40:43.205Z] Platform:      darwin
+[debug] [2025-03-20T14:40:43.205Z] Node Version:  v23.9.0
+[debug] [2025-03-20T14:40:43.205Z] Time:          Thu Mar 20 2025 20:10:43 GMT+0530 (India Standard Time)
+[debug] [2025-03-20T14:40:43.206Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-03-20T14:40:43.343Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-03-20T14:40:43.344Z] > authorizing via signed-in user (yuvrajpri143@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/yuvrajbedwal/Desktop/TRAVEL 106866
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-03-20T14:40:43.346Z] Using project from CLI flag: travel-booking-106866
+[debug] [2025-03-20T14:40:43.347Z] Checked if tokens are valid: false, expires at: 1742480533844
+[debug] [2025-03-20T14:40:43.347Z] Checked if tokens are valid: false, expires at: 1742480533844
+[debug] [2025-03-20T14:40:43.347Z] > refreshing access token with scopes: []
+[debug] [2025-03-20T14:40:43.348Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-03-20T14:40:43.348Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-03-20T14:40:52.667Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-03-20T14:40:52.668Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-03-20T14:40:52.680Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T14:40:54.228Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 404
+[debug] [2025-03-20T14:40:54.228Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[debug] [2025-03-20T14:40:54.232Z] Couldn't get project info from firedata for travel-booking-106866, trying resource manager. Original error: FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 had HTTP Error: 404, Requested entity was not found.
+[debug] [2025-03-20T14:40:54.232Z] Checked if tokens are valid: true, expires at: 1742485251668
+[debug] [2025-03-20T14:40:54.233Z] Checked if tokens are valid: true, expires at: 1742485251668
+[debug] [2025-03-20T14:40:54.233Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T14:40:55.549Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 200
+[debug] [2025-03-20T14:40:55.550Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 {"projectNumber":"399255603855","projectId":"travel-booking-106866","lifecycleState":"ACTIVE","name":"Travel Booking App","createTime":"2025-03-20T13:26:38.014775Z"}
+[info] i  Using project travel-booking-106866 
+[info] 
+=== Hosting Setup
+[debug] [2025-03-20T14:40:55.565Z] Checked if tokens are valid: true, expires at: 1742485251668
+[debug] [2025-03-20T14:40:55.573Z] Checked if tokens are valid: true, expires at: 1742485251668
+[debug] [2025-03-20T14:40:55.573Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T14:40:56.424Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 404
+[debug] [2025-03-20T14:40:56.425Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 {"error":{"code":404,"message":"Requested entity was not found.","status":"NOT_FOUND"}}
+[debug] [2025-03-20T14:40:56.426Z] Couldn't get project info from firedata for travel-booking-106866, trying resource manager. Original error: FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/travel-booking-106866 had HTTP Error: 404, Requested entity was not found.
+[debug] [2025-03-20T14:40:56.426Z] Checked if tokens are valid: true, expires at: 1742485251668
+[debug] [2025-03-20T14:40:56.426Z] Checked if tokens are valid: true, expires at: 1742485251668
+[debug] [2025-03-20T14:40:56.426Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 [none]
+[debug] [2025-03-20T14:40:57.200Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 200
+[debug] [2025-03-20T14:40:57.200Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/travel-booking-106866 {"projectNumber":"399255603855","projectId":"travel-booking-106866","lifecycleState":"ACTIVE","name":"Travel Booking App","createTime":"2025-03-20T13:26:38.014775Z"}
+[debug] [2025-03-20T14:40:57.201Z] the default site does not exist on the Firebase project; asking Hosting.
+[debug] [2025-03-20T14:40:57.201Z] Checked if tokens are valid: true, expires at: 1742485251668
+[debug] [2025-03-20T14:40:57.201Z] Checked if tokens are valid: true, expires at: 1742485251668
+[debug] [2025-03-20T14:40:57.201Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites pageToken=&pageSize=10
+[debug] [2025-03-20T14:40:59.833Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites 200
+[debug] [2025-03-20T14:40:59.834Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/travel-booking-106866/sites {}

@@ -5,12 +5,13 @@
     <title>Tour & Travel</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="redirectpage.html">
+    <!-- <link rel="stylesheet" href="redirectpage.html"> -->
+
 
 </head>
 
 <body>
-    <div class="preloader" style="display: flex;">
+    <div class="preloader">
         <div class="loader"></div>
     </div>
 
@@ -124,7 +125,6 @@
             
             if (cursor && cursor2) {
                 cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-                cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
                 cursor2.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
             }
         }, 10));
@@ -177,16 +177,17 @@
     <header class="header">
         <a href="#" class="logo">
             <i class="fas fa-hiking"></i> 
-            <span class="logo-text">travel.com</span>
+            <span class="logo-text">Tour & Travel </span>
         </a>
         
         <nav class="navbar">
             <div id="nav-close" class="fas fa-times"></div>
             <a href="#home" class="nav-link active">home</a>
             <a href="#category" class="nav-link">Booking</a>
-            <a href="#category" class="nav-link">Adventure</a>
+            <a href="#adventure" class="nav-link">Adventure</a>
             <a href="#packages" class="nav-link">packages</a>
             <a href="#contact" class="nav-link">contact</a>
+            <a href="/admin/login.html" class="nav-link">Admin</a>
         </nav>
         
         <div class="icons">
@@ -237,7 +238,7 @@
 
 <section class="category" id="category" style="background: url('images/Achievements.png') no-repeat center center; background-size: cover;">
 
-
+        <div class="content">
 <head>
     <style>
         body{ background-image: url(background.jpg);
@@ -256,7 +257,7 @@
     <nav>
         <div class="logo">
             <h1>TRIAN BUS FLIGHTS & HOTELS</h1>
-
+            <div class="box" style="background: url(images/category-5-rectangle.jpg) no-repeat;">
             <div class="box"> 
         </div>
         <div class="links">
@@ -271,7 +272,7 @@
             <h1 data-aos="fade-right" data-aos-duration="2000" data-aos-delay="900">Your Safe Travel Journey Is Our Main Goal</h1>
             <p data-aos="fade-left" data-aos-duration="2000" data-aos-delay="1000">“Experience unparalleled comfort and unwavering reliability throughout every step of your journey, ensuring a seamless, stress-free, and truly memorable travel experience.”.</p>
             <!-- <button data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="1200">GET YOUR TICKET</button> -->
-            <a href="booking.html" class="btn">GET YOUR TICKET</a>
+            <a href="indexbooking.html" class="btn">GET YOUR TICKET</a>
 
             <div class="booking-section">
                 <h1>Booking!</h1>
@@ -314,7 +315,31 @@
 
 <section class="ai-assistant" id="ai-assistant">
     <h1 class="heading">Travel AI Assistant</h1>
-    
+
+    <div class="background">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+     </div>
+
     <div class="box" style="background: url(images/aii.jpg) no-repeat center center; background-size: cover; padding: 20px;">
         <div class="chatbox">
             <div class="message-container" id="messages">
@@ -391,7 +416,6 @@
 <br>
 
 <section class="food" id="food">
-    
     <h1 class="heading">Our Food Services</h1>
     
     <div class="food-container">
@@ -435,8 +459,8 @@
         </div>
     </div>
 
-
     <a href="foo.html" class="btn">Book Your Meal</a>
+
 </section>
 
 <style>
@@ -549,6 +573,8 @@
 </div>
 
 </section>
+<section class="packages" id="packages" style="background: url('images/Achievements.png') no-repeat center center; background-size: cover;">
+
     <h1 class="heading">popular packages</h1>
 
     <div class="box-container">
@@ -563,9 +589,9 @@
                     well as newly married couples who look for cheapest Manali tour packages & Manali Honeymoon
                     Packages to experience the perfect solitude and calmness at its best.</p>
                 <div class="price">Rs 5,999 - Rs 8,999</div>
-                <button class="book-now-btn btn" 
                         data-package="Manali Package" 
-                        data-price="5999">Book Now</button>
+            
+                        <a href="newpage.html" class="btn">Book Now</a>
             </div>
         </div>
 
@@ -579,7 +605,7 @@
                     Panaji. Baga is popular for its nightlife with some very famous clubs such as Brittos, Titos and
                     Mambos.There is also a range of water sports that you can try your hands at.</p>
                 <div class="price">Rs 7,999 - Rs 12,999</div>
-                <a href="#contact" class="btn">book now</a>
+                 <a href="newpage.html" class="btn">book now</a>
             </div>
         </div>
 
@@ -593,7 +619,7 @@
                     forts, museums, markets and more. We take you to some of the best spots in the city. Pick the
                     best packages from here and enjoy the tour of Delhi with guide.</p>
                 <div class="price">Rs 2,999 - Rs 8,999</div>
-                <a href="#contact" class="btn">book now</a>
+                <a href="newpage.html" class="btn">book now</a>
             </div>
         </div>
 
@@ -607,7 +633,7 @@
                     Deserts, Traditional Villages, colorful cattle fairs, sacred places, camel safaris, beautiful
                     lakes, hill stations and the people. </p>
                 <div class="price">Rs 11,999 - Rs15,999</div>
-                <a href="#contact" class="btn">book now</a>
+                <a href="newpage.html" class="btn">book now</a>
             </div>
         </div>
 
@@ -621,7 +647,7 @@
                     through our hand-picked Kerala tour packages prepared for you. Our experts are also available to
                     prepare customised tourism packages</p>
                 <div class="price">Rs 4,999 - Rs 9,999</div>
-                <a href="#contact" class="btn">book now</a>
+                <a href="newpage.html" class="btn">book now</a>
             </div>
         </div>
 
@@ -635,14 +661,14 @@
                     or a tour of the stunning landscaped gardens here. Activities like hiking and boating. Do not
                     miss out on a trip to Darjeeling Is famous Mall Road</p>
                 <div class="price">Rs 20,000 - Rs 25,000</div>
-                <a href="#contact" class="btn">book now</a>
+                <a href="newpage.html" class="btn">book now</a>
             </div>
         </div>
 
     </div>
 
 </section>
-
+<section class="contact" id="contact" style="background: url('images/Achievements.png') no-repeat center center; background-size: cover;">
 
     <div class="wrapper1">
         <div class="title1">
@@ -694,11 +720,11 @@
 
         <div class="box">
             <h3>follow us</h3>
-            <a href="https://www.facebook.com/yash.dabhade.961?hc_ref=ARQj2COQ49kYiyfzH0IldAy7dozojePpTmeStX-eu_OabfZFAOOa3kk-lJwfOCITjRo&ref=nf_target"
+            <a href=""
                 target="_blank"> <i class="fab fa-facebook-f"></i> facebook </a>
-            <a href="https://instagram.com/_yashhh_x08_?igshid=YmMyMTA2M2Y=" target="_blank"> <i
-                    class="fab fa-instagram"></i> instagram </a>
-            <a href="https://www.linkedin.com/in/yash-srivastav/"> <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            <a href="=" target="_blank"> <i
+                    class=""></i> instagram </a>
+            <a href="/"> <i class="fa-brands fa-whatsapp"></i> WhatsApp
             </a>
         </div>
     </div>
