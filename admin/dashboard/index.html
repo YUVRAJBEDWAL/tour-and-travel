@@ -93,6 +93,33 @@
             background: var(--primary);
             color: white;
         }
+        
+        .status-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .status-confirmed {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .status-pending {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-cancelled {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .status-completed {
+            background-color: #cce5ff;
+            color: #004085;
+        }
 
         .logout-btn {
             background: var(--primary);
@@ -147,8 +174,9 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>User</th>
                     <th>Package</th>
+                    <th>Image</th>
+                    <th>User</th>
                     <th>Date</th>
                     <th>Status</th>
                     <th>Amount</th>
@@ -193,16 +221,29 @@
             document.getElementById('activeUsers').textContent = data.activeUsers || 0;
             
             const bookingsTable = document.getElementById('bookingsTable');
+            
+            // Package image mapping
+            const packageImages = {
+                'Manali Package': '/Users/yuvrajbedwal/Desktop/TRAVEL 106866/images/img-1.jpg',
+                'Goa Package': '/Users/yuvrajbedwal/Desktop/TRAVEL 106866/images/img-2.jpg',
+                'Delhi Package': '/Users/yuvrajbedwal/Desktop/TRAVEL 106866/images/img-3.jpg',
+                'Jaipur Package': '/Users/yuvrajbedwal/Desktop/TRAVEL 106866/images/img-4.jpg',
+                'Kerala Package': '/Users/yuvrajbedwal/Desktop/TRAVEL 106866/images/img-5.jpg',
+                'Darjeeling': '/Users/yuvrajbedwal/Desktop/TRAVEL 106866/images/img-6.jpg'
+            };
+            
             bookingsTable.innerHTML = data.recentBookings?.map(booking => `
                 <tr>
                     <td>${booking.id}</td>
-                    <td>${booking.user}</td>
                     <td>${booking.package}</td>
+                    <td><img src="${packageImages[booking.package] || '/Users/yuvrajbedwal/Desktop/TRAVEL 106866/images/category-1.jpg'}" 
+                         alt="${booking.package}" style="width: 80px; height: 50px; object-fit: cover; border-radius: 4px;"></td>
+                    <td>${booking.user}</td>
                     <td>${new Date(booking.date).toLocaleDateString()}</td>
-                    <td>${booking.status}</td>
+                    <td><span class="status-badge status-${booking.status.toLowerCase()}">${booking.status}</span></td>
                     <td>$${booking.amount}</td>
                 </tr>
-            `).join('') || '<tr><td colspan="6">No recent bookings</td></tr>';
+            `).join('') || '<tr><td colspan="7">No recent bookings</td></tr>';
         }
 
         function logout() {

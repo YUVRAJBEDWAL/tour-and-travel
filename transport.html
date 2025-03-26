@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport - Tour & Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .transport-header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 40px 0;
+        }
+
+        .transport-content {
+            display: flex;
+            padding: 40px 0;
+            gap: 30px;
+        }
+
+        .transport-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            margin-bottom: 25px;
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+
+        .transport-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .transport-details {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .transport-type {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .transport-type i {
+            color: var(--primary-color);
+        }
+
+        .transport-route {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .route-point {
+            text-align: center;
+        }
+
+        .route-point h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .route-line {
+            flex: 1;
+            height: 2px;
+            background-color: var(--medium-gray);
+            position: relative;
+        }
+
+        .route-duration {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            color: var(--dark-gray);
+        }
+
+        .transport-info {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--dark-gray);
+            font-size: 14px;
+        }
+
+        .transport-price {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price-amount {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        @media (max-width: 768px) {
+            .transport-content {
+                flex-direction: column;
+            }
+
+            .filters-sidebar {
+                width: 100%;
+            }
+
+            .transport-card {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>Tour & Travel</h1>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="indexbooking.html">Home</a></li>
+                        <li><a href="hotels.html">Hotels</a></li>
+                        <li><a href="flights.html">Flights</a></li>
+                        <li><a href="transport.html" class="active">Transport</a></li>
+                        <li><a href="rentals.html">Car Rentals</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <!-- <a href="login.html" class="btn btn-outline">Log In</a>
+                    <a href="register.html" class="btn btn-primary">Sign Up</a> -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="transport-header">
+        <div class="container">
+            <h1>Transport Search Results</h1>
+            <div id="search-summary"></div>
+            <div class="results-count">
+                <span id="transport-count"></span>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="transport-content">
+            <aside class="filters-sidebar">
+                <div class="filter-card">
+                    <h3>Filter Transport</h3>
+                    <div class="filter-group">
+                        <h4>Transport Type</h4>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" checked> Bus</label>
+                            <label><input type="checkbox" checked> Train</label>
+                            <label><input type="checkbox" checked> Ferry</label>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Departure Time</h4>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox"> Morning (6AM - 12PM)</label>
+                            <label><input type="checkbox"> Afternoon (12PM - 6PM)</label>
+                            <label><input type="checkbox"> Evening (6PM - 12AM)</label>
+                            <label><input type="checkbox"> Night (12AM - 6AM)</label>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Price Range</h4>
+                        <input type="range" min="100" max="5000" value="2500" class="price-slider">
+                        <div class="price-range">
+                            <span>₹100</span>
+                            <span>₹5,000</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="transport-list">
+                <div id="transport-results">
+                    <!-- Transport results will be populated here -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const searchSummary = document.getElementById('search-summary');
+            const transportResults = document.getElementById('transport-results');
+            const transportCount = document.getElementById('transport-count');
+            
+            if (params.has('from') && params.has('to')) {
+                searchSummary.innerHTML = `
+                    <p>
+                        <strong>${params.get('from')}</strong> to 
+                        <strong>${params.get('to')}</strong><br>
+                        ${params.get('date')} · ${params.get('passengers')}
+                    </p>
+                `;
+
+                // Sample transport data (in a real app, this would come from a backend)
+                const transportOptions = [
+                    // Bus options
+                    { type: 'bus', name: 'Express Bus - AC Volvo', departure: '06:00', arrival: '10:30', duration: '4h 30m', price: 899 },
+                    { type: 'bus', name: 'Luxury Bus - Sleeper', departure: '08:00', arrival: '12:30', duration: '4h 30m', price: 999 },
+                    { type: 'bus', name: 'Regular Bus - AC', departure: '10:00', arrival: '14:30', duration: '4h 30m', price: 699 },
+                    
+                    // Train options
+                    { type: 'train', name: 'Express Train - First Class', departure: '07:30', arrival: '11:15', duration: '3h 45m', price: 1299 },
+                    { type: 'train', name: 'Superfast Train - AC Chair', departure: '09:30', arrival: '13:15', duration: '3h 45m', price: 1099 },
+                    { type: 'train', name: 'Regular Train - Second Class', departure: '11:30', arrival: '15:15', duration: '3h 45m', price: 899 }
+                ];
+
+                // Update count
+                transportCount.textContent = `${transportOptions.length} transport options found`;
+
+                // Generate HTML for all transport options
+                const transportHTML = transportOptions.map(option => `
+                    <div class="transport-card">
+                        <div class="transport-details">
+                            <div class="transport-type">
+                                <i class="fas fa-${option.type === 'bus' ? 'bus' : 'train'}"></i>
+                                <span>${option.name}</span>
+                            </div>
+                            <div class="transport-route">
+                                <div class="route-point">
+                                    <h3>${option.departure}</h3>
+                                    <p>${params.get('from')}</p>
+                                </div>
+                                <div class="route-line">
+                                    <span class="route-duration">${option.duration}</span>
+                                </div>
+                                <div class="route-point">
+                                    <h3>${option.arrival}</h3>
+                                    <p>${params.get('to')}</p>
+                                </div>
+                            </div>
+                            <div class="transport-info">
+                                <div class="info-item">
+                                    ${option.type === 'bus' ? '<i class="fas fa-couch"></i><span>Reclining Seats</span>' : '<i class="fas fa-utensils"></i><span>Meals</span>'}
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-snowflake"></i>
+                                    <span>AC</span>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-wifi"></i>
+                                    <span>WiFi</span>
+                                </div>
+                            </div>
+                            <div class="transport-price">
+                                <div class="price-amount">₹${option.price}</div>
+                                <button class="btn btn-primary">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+                transportResults.innerHTML = transportHTML;
+            }
+        });
+    </script>
+</body>
+</html>

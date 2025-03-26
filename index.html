@@ -1,13 +1,18 @@
 <!DOCTYPE html>
+&lt;?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.html");
+    exit();
+}
+?&gt;
+<!DOCTYPE html>
 <html>
 
 <head>
     <title>Tour & Travel</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <!-- <link rel="stylesheet" href="redirectpage.html"> -->
-
-
 </head>
 
 <body>
@@ -187,7 +192,7 @@
             <a href="#adventure" class="nav-link">Adventure</a>
             <a href="#packages" class="nav-link">packages</a>
             <a href="#contact" class="nav-link">contact</a>
-            <a href="/admin/login.html" class="nav-link">Admin</a>
+            <a href="admin/index.php" class="nav-link"><i class="fas fa-robot"></i> Admin <span class="click-btn">Click</span></a>
         </nav>
         
         <div class="icons">
@@ -317,6 +322,9 @@
     <h1 class="heading">Travel AI Assistant</h1>
 
     <div class="background">
+        <span></span>
+        <span></span>
+        <span></span>
         <span></span>
         <span></span>
         <span></span>
@@ -675,20 +683,19 @@
             <h1>contact us form</h1>
         </div>
         <div class="contact-form">
-            <form method="POST" action="mail.php">
+            <form method="POST" action="process_contact.php">
                 <div class="input-fields">
-
-                    <input type="text" class="input" placeholder="Name" name="fullname">
-                    <input type="email" class="input" placeholder="Email Address" name="email">
-                    <input type="phone" class="input" placeholder="Phone" name="phone">
-                    <input type="text" class="input" placeholder="Subject" name="subject">
+                    <input type="text" class="input" placeholder="Name" name="fullname" required>
+                    <input type="email" class="input" placeholder="Email Address" name="email" required>
+                    <input type="phone" class="input" placeholder="Phone" name="phone" required>
+                    <input type="text" class="input" placeholder="Subject" name="subject" required>
                 </div>
                 <div class="msg">
-                    <textarea placeholder="Message" name="message"></textarea>
-                    <div class="btn1"><button name="submit" type="submit">send</div>
+                    <textarea placeholder="Message" name="message" required></textarea>
+                    <button name="submit" type="submit">Send Message</button>
+                </div>
             </form>
         </div>
-    </div>
     </div>
 
 </section>

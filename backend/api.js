@@ -5,7 +5,8 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 3001;  // Keep only this PORT definition
+// Define port for server to listen on
+const PORT = process.env.PORT || 3001;
 
 // CORS configuration
 app.use(cors({

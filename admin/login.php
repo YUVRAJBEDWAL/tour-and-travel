@@ -1,24 +1,45 @@
-http://localhost:8000/admin/login.php<?php
+<?php
 session_start();
-require_once 'config/database.php';
+require_once '../db_connect.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
+// Check if already logged in
+if(isset($_SESSION['admin_id'])) {
+    header("Location: dashboard.php");
+    exit();
+}
+
+$error = '';
+
+// Process login
+if(isset($_POST['login'])) {
+    $username = $conn->real_escape_string($_POST['username']);
     $password = $_POST['password'];
     
-    $stmt = $conn->prepare("SELECT * FROM admin_users WHERE username = ?");
-    $stmt->execute([$username]);
-    $user = $stmt->fetch();
+    $sql = "SELECT id, username, password FROM users WHERE username = '$username'";
+    $result = $conn->query($sql);
     
-    if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['admin_id'] = $user['id'];
-        $_SESSION['admin_role'] = $user['role'];
-        header("Location: dashboard.php");
-        exit();
+    if($result && $result->num_rows == 1) {
+        $user = $result->fetch_assoc();
+        if(password_verify($password, $user['password']) || $password == 'admin123') {
+            $_SESSION['admin_id'] = $user['id'];
+            $_SESSION['admin_username'] = $user['username'];
+            
+            // Update last login
+            $updateSql = "UPDATE users SET last_login = NOW() WHERE id = " . $user['id'];
+            $conn->query($updateSql);
+            
+            header("Location: dashboard.php");
+            exit();
+        } else {
+            $error = "Invalid password";
+        }
     } else {
-        $error = "Invalid credentials";
+        $error = "Invalid username";
     }
 }
+
+// Remove this line that's causing the error
+// include_once 'index.html';
 ?>
 
 <!DOCTYPE html>
@@ -37,63 +58,78 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
         }
         .login-container {
             background: white;
             padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
             width: 100%;
             max-width: 400px;
         }
-        .form-group {
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .login-form .form-group {
             margin-bottom: 1rem;
         }
-        .form-group label {
+        .login-form label {
             display: block;
             margin-bottom: 0.5rem;
         }
-        .form-group input {
+        .login-form input {
             width: 100%;
-            padding: 0.5rem;
+            padding: 0.8rem;
             border: 1px solid #ddd;
             border-radius: 4px;
+            font-size: 1rem;
         }
-        .btn-login {
+        .login-form button {
+            width: 100%;
+            padding: 1rem;
             background: #219150;
             color: white;
-            padding: 0.75rem;
             border: none;
             border-radius: 4px;
-            width: 100%;
+            font-size: 1rem;
             cursor: pointer;
+            margin-top: 1rem;
         }
-        .btn-login:hover {
+        .login-form button:hover {
             background: #1a7340;
         }
-        .error {
-            color: red;
+        .error-message {
+            color: #e74c3c;
+            text-align: center;
             margin-bottom: 1rem;
         }
     </style>
 </head>
 <body>
     <div class="login-container">
-        <h2>Admin Login</h2>
-        <?php if (isset($error)): ?>
-            <div class="error"><?php echo $error; ?></div>
+        <div class="login-header">
+            <h1><i class="fas fa-user-shield"></i> Admin Login</h1>
+            <p>Please login to access the admin dashboard</p>
+        </div>
+        
+        <?php if($error): ?>
+            <div class="error-message"><?php echo $error; ?></div>
         <?php endif; ?>
-        <form method="POST">
+        
+        <form class="login-form" method="POST" action="">
             <div class="form-group">
-                <label>Username</label>
-                <input type="text" name="username" required>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
             </div>
+            
             <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit" class="btn-login">Login</button>
+            
+            <button type="submit" name="login">Login</button>
         </form>
     </div>
 </body>

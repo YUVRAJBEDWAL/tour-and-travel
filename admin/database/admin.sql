@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS travel_admin;
-CREATE DATABASE travel_admin;
+-- Remove this line: DROP DATABASE IF EXISTS travel_admin;
+CREATE DATABASE IF NOT EXISTS travel_admin;  -- Keep this as-is
 USE travel_admin;
 
 CREATE TABLE admin_users (

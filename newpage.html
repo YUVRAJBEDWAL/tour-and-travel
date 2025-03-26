@@ -17,6 +17,74 @@
       background-color: #f5f7fa;
       color: #333;
       line-height: 1.6;
+      /* 3D Background Effect */
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+      perspective: 1000px;
+      overflow-x: hidden;
+    }
+
+    /* 3D Floating Elements */
+    .container::before {
+      content: '';
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="%233563E9" opacity="0.3"/></svg>');
+      z-index: -1;
+      transform: translateZ(-10px);
+      animation: floatingBg 15s infinite linear;
+      pointer-events: none;
+    }
+
+    @keyframes floatingBg {
+      0% {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+      }
+      100% {
+        transform: translate3d(20px, 20px, 0) rotate(360deg);
+      }
+    }
+
+    /* 3D Card Effect */
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      padding: 25px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-5px) rotateX(2deg) rotateY(2deg);
+      box-shadow: 0 15px 30px rgba(53, 99, 233, 0.15);
+    }
+
+    /* 3D Parallax Effect for Package Cards */
+    .box.card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .box.card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(53, 99, 233, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+      transform: translateZ(-1px);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .box.card:hover::before {
+      opacity: 1;
     }
 
     /* Container styles */
@@ -24,6 +92,9 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
+      position: relative;
+      z-index: 1;
+      transform-style: preserve-3d;
     }
 
     /* Header styles */
@@ -424,6 +495,110 @@
       font-size: 0.85rem;
     }
 
+    /* Payment Receipt Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .modal.show {
+      display: flex;
+    }
+    
+    .modal-content {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 500px;
+      padding: 30px;
+      transform: translateY(20px);
+      animation: modalSlideIn 0.4s forwards;
+    }
+    
+    @keyframes modalSlideIn {
+      to {
+        transform: translateY(0);
+      }
+    }
+    
+    .receipt-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .receipt-header h2 {
+      color: #3563E9;
+      margin-bottom: 5px;
+    }
+    
+    .receipt-header p {
+      color: #666;
+    }
+    
+    .receipt-details {
+      margin-bottom: 20px;
+    }
+    
+    .receipt-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .receipt-label {
+      color: #666;
+    }
+    
+    .receipt-value {
+      font-weight: 500;
+    }
+    
+    .receipt-total {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #3563E9;
+    }
+    
+    .receipt-message {
+      text-align: center;
+      margin: 20px 0;
+      padding: 15px;
+      background-color: #f0f9ff;
+      border-radius: 8px;
+      color: #3563E9;
+    }
+    
+    .receipt-footer {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .receipt-footer button {
+      background: linear-gradient(90deg, #3563E9 0%, #6C5CE7 100%);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .receipt-footer button:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+    
     /* Toast notification */
     .toast {
       position: fixed;
@@ -439,7 +614,7 @@
       opacity: 0;
       z-index: 1000;
     }
-
+    
     .toast.show {
       transform: translateY(0);
       opacity: 1;
@@ -492,12 +667,7 @@
       </div>
       <div class="step-connector connector-active"></div>
       
-      <!-- <div class="step">
-        <div class="step-number step-active">2</div> 
-         <div class="step-label">Split Payment</div> 
-      </div> -->
-      <!-- <div class="step-connector connector-active"></div>
-       -->
+  
       <div class="step">
         <div class="step-number step-active">2</div>
         <div class="step-label">Payment</div>
@@ -669,22 +839,56 @@
           </ul>
         </div>
         
-        <!-- <div class="footer-section">
-          <h3>Contact Us</h3>
-          <address class="footer-address">
-            23 Travel Street<br>
-            Mumbai, Mahara1shtra 400001<br><br>
-            Email: info@travelpay.com<br>
-            Phone: +91 9876543210
-          </address>
+       
+
+  <!-- Add Payment Receipt Modal -->
+  <div id="receiptModal" class="modal">
+    <div class="modal-content">
+      <div class="receipt-header">
+        <h2>Payment Successful!</h2>
+        <p>Your booking has been confirmed</p>
+      </div>
+      
+      <div class="receipt-details">
+        <div class="receipt-row">
+          <span class="receipt-label">Booking ID</span>
+          <span class="receipt-value" id="receiptBookingId">TRP-2023-1234</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Package</span>
+          <span class="receipt-value" id="receiptPackage">Package Name</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Travel Dates</span>
+          <span class="receipt-value" id="receiptDates">DD/MM/YYYY - DD/MM/YYYY</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Guests</span>
+          <span class="receipt-value" id="receiptGuests">1</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Base Price</span>
+          <span class="receipt-value" id="receiptBasePrice">₹0</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label">Taxes & Fees</span>
+          <span class="receipt-value" id="receiptTaxes">₹0</span>
+        </div>
+        <div class="receipt-row">
+          <span class="receipt-label receipt-total">Total Amount</span>
+          <span class="receipt-value receipt-total" id="receiptTotal">₹0</span>
         </div>
       </div>
       
-      <div class="footer-bottom">
-        <p>&copy; 2025 TravelPay. All rights reserved.</p>
+      <div class="receipt-message">
+        <p>Thank you for choosing Tour & TravelPay! We hope you have a wonderful trip.</p>
+      </div>
+      
+      <div class="receipt-footer">
+        <button onclick="closeReceiptModal()">Continue</button>
       </div>
     </div>
-  </footer> -->
+  </div>
 
   <div id="toast" class="toast">Toast message</div>
 
@@ -722,5 +926,110 @@ function selectPackage(packageName, price) {
     // Update QR code with new amount
     const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=${paymentDetails.upiId}&pn=${paymentDetails.name}&am=${totalAmount}&cu=INR&tn=${encodeURIComponent(paymentDetails.transactionNote)}`;
     document.getElementById('qrCode').src = qrCodeUrl;
+    
+    // Update booking summary
+    const packageDetails = document.getElementById('packageDetails');
+    packageDetails.innerHTML = `
+        <div style="margin-bottom: 20px;">
+            <div class="booking-detail">
+                <span class="detail-label">Package</span>
+                <span class="detail-value">${packageName}</span>
+            </div>
+            <div class="booking-detail">
+                <span class="detail-label">Base Price</span>
+                <span>₹${baseAmount}</span>
+            </div>
+            <div class="booking-detail">
+                <span class="detail-label">Taxes & Fees</span>
+                <span>₹${taxes}</span>
+            </div>
+            <div class="booking-detail total-amount">
+                <span>Total Amount</span>
+                <span>₹${totalAmount}</span>
+            </div>
+        </div>
+    `;
 }
-</script>
+
+// Function to update dates
+function updateDates() {
+    // This function will be called when date inputs change
+    // You can add additional logic here if needed
+    updateTotalPrice();
+}
+
+// Function to update total price when guest count changes
+function updateTotalPrice() {
+    // Get the currently selected package details
+    const packageDetails = document.getElementById('packageDetails');
+    const packageName = packageDetails.querySelector('.detail-value')?.textContent;
+    
+    // Only update if a package has been selected
+    if (packageName && packageName !== 'Select a package above') {
+        // Find the price from the package selection
+        let basePrice = 0;
+        if (packageName.includes('Manali')) basePrice = 5999;
+        else if (packageName.includes('Goa')) basePrice = 7999;
+        else if (packageName.includes('Kerala')) basePrice = 9999;
+        
+        // Re-select the package to update prices
+        selectPackage(packageName, basePrice);
+    }
+}
+
+// Initialize toast notification
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
+
+// Add event listeners for copy buttons
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('copyUpiBtn').addEventListener('click', function() {
+        navigator.clipboard.writeText(paymentDetails.upiId);
+        showToast('UPI ID copied to clipboard');
+    });
+    
+    document.getElementById('copyAmountBtn').addEventListener('click', function() {
+        navigator.clipboard.writeText(paymentDetails.amount);
+        showToast('Amount copied to clipboard');
+    });
+    
+    document.getElementById('openUpiBtn').addEventListener('click', function() {
+        // Create UPI intent URL
+        const upiUrl = `upi://pay?pa=${paymentDetails.upiId}&pn=${paymentDetails.name}&am=${paymentDetails.amount}&cu=INR&tn=${encodeURIComponent(paymentDetails.transactionNote)}`;
+        window.location.href = upiUrl;
+    });
+    
+    document.getElementById('checkPaymentBtn').addEventListener('click', function() {
+        showToast('Checking payment status...');
+        // In a real app, you would check the payment status with your backend
+        setTimeout(() => {
+            showToast('Payment successful!');
+            // Show payment receipt after 1 second
+            setTimeout(() => {
+                showPaymentReceipt();
+            }, 1000);
+        }, 1500);
+    });
+});
+
+
+
+
+
+
+
+</script>        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+<script src="payment.js"></script>
+</body>
+<!-- Removed extra closing html tag since it was already closed above -->
