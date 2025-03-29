@@ -11,6 +11,7 @@ The HomePage of the Website is with **index.html** file.
 
 ## Features
 
+
 ### Food Services
 - **Breakfast**: Continental and local specialties starting from Rs. 299
 - **Lunch**: Multi-cuisine menu with vegetarian and non-vegetarian options from Rs. 399
@@ -36,5 +37,12 @@ python -m http.server 8000
 
 php -S localhost:8000
 
-# tour-and-travels
-# tour-and-travel
+## XAMPP Installation
+
+To run this project locally, you'll need XAMPP installed on your system. Due to file size limitations, the XAMPP installer is hosted externally.
+
+1. Download XAMPP installer from [Google Drive](https://drive.google.com/file/d/1234567890/view)
+2. Install XAMPP following the standard installation process
+3. Place the project files in the appropriate directory (htdocs for Apache)
+4. Start Apache and MySQL services from XAMPP Control Panel
+5. Access the project through localhost in your web browser

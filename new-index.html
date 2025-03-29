@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour & Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor2"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <a href="#" class="logo">
+            <i class="fas fa-hiking"></i> 
+            <span class="logo-text">Tour & Travel</span>
+        </a>
+        
+        <nav class="navbar">
+            <div id="nav-close" class="fas fa-times"></div>
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#booking" class="nav-link">Booking</a>
+            <a href="#adventure" class="nav-link">Adventure</a>
+            <a href="#packages" class="nav-link">Packages</a>
+            <a href="#contact" class="nav-link">Contact</a>
+            <a href="admin/index.php" class="nav-link"><i class="fas fa-robot"></i> Admin <span class="click-btn">Click</span></a>
+        </nav>
+        
+        <div class="icons">
+            <div id="menu-btn" class="fas fa-bars"></div>
+            <div id="search-btn" class="fas fa-search"></div>
+            <div id="login-btn" class="fas fa-user"></div>
+        </div>
+    </header>
+
+    <!-- Search Form -->
+    <div class="search-form">
+        <div id="close-search" class="fas fa-times"></div>
+        <form action="">
+            <input type="search" name="" placeholder="search here..." id="search-box">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+    </div>
+
+    <!-- Home Section -->
+    <section class="home" id="home">
+        <div class="wrapper">
+            <div class="box" style="background: url(images/home1.jpg) no-repeat;">
+                <div class="content">
+                    <span>never stop</span>
+                    <h3>exploring</h3>
+                    <p>Travel.com offers best deals on India tour packages.</p>
+                    <a href="#booking" class="btn">get started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="category" id="booking">
+        <h1 class="heading">Booking!</h1>
+        
+        <div class="content">
+            <h2>TRIAN BUS FLIGHTS & HOTELS</h2>
+            
+            <div class="booking-info">
+                <h3>Your Safe Travel Journey Is Our Main Goal</h3>
+                <p>"Experience unparalleled comfort and unwavering reliability throughout every step of your journey, ensuring a seamless, stress-free, and truly memorable travel experience."</p>
+                <a href="indexbooking.html" class="btn">GET YOUR TICKET</a>
+            </div>
+
+            <div class="booking-section">
+                <h3>Your Safe Travel Journey Is Our Main Goal</h3>
+                <p>The Best Deals for Your Next Journey</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Assistant Section -->
+    <section class="ai-assistant" id="ai-assistant">
+        <h1 class="heading">Travel AI Assistant</h1>
+
+        <div class="background">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="box" style="background: url(images/aii.jpg) no-repeat center center; background-size: cover; padding: 20px;">
+            <div class="chatbox">
+                <div class="message-container" id="messages">
+                    <!-- Initial welcome message -->
+                    <div class="ai-msg">Hello! How can I help you plan your travel today?</div>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="userInput" placeholder="Ask about your trip..." 
+                           onkeypress="if(event.key === 'Enter') sendMessage()"/>
+                    <button class="btn" onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            let conversationHistory = [];
+
+            function appendMessage(msg, sender) {
+                const messageContainer = document.getElementById('messages');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = sender === 'user' ? 'user-msg' : 'ai-msg';
+                messageDiv.textContent = msg;
+                messageContainer.appendChild(messageDiv);
+                messageContainer.scrollTop = messageContainer.scrollHeight;
+                
+                // Add to conversation history
+                conversationHistory.push({ role: sender, content: msg });
+            }
+
+            async function sendMessage() {
+                const userInput = document.getElementById('userInput');
+                const message = userInput.value.trim();
+                
+                if (message === '') return;
+
+                // Disable input while processing
+                userInput.disabled = true;
+                
+                // Show user message
+                appendMessage(message, 'user');
+                userInput.value = '';
+
+                // Generate response based on keywords
+                let response = '';
+                const lowerMessage = message.toLowerCase();
+                
+                if (lowerMessage.includes('weather')) {
+                    response = "I can help you check the weather. Which city are you interested in?";
+                } 
+                else if (lowerMessage.includes('book') || lowerMessage.includes('ticket')) {
+                    response = "I can help you book tickets. Please specify:\n- Your destination\n- Travel dates\n- Number of travelers";
+                }
+                else if (lowerMessage.includes('hotel')) {
+                    response = "Looking for hotel recommendations? Let me know:\n- Your destination\n- Check-in/out dates\n- Preferred budget range";
+                }
+                else if (lowerMessage.includes('package') || lowerMessage.includes('tour')) {
+                    response = "I can suggest travel packages. What's your preferred destination and budget?";
+                }
+                else {
+                    response = "How can I assist you with your travel plans? I can help with:\n- Weather information\n- Ticket booking\n- Hotel recommendations\n- Travel packages";
+                }
+
+                // Show AI response with a small delay to feel more natural
+                setTimeout(() => {
+                    appendMessage(response, 'ai');
+                    userInput.disabled = false;
+                    userInput.focus();
+                }, 500);
+            }
+        </script>
+    </section>
+
+    <!-- Food Services Section -->
+    <section class="food" id="food">
+        <h1 class="heading">Our Food Services</h1>
+        
+        <div class="food-container">
+            <div class="food-box">
+                <img src="images/Screenshot 2025-03-03 at 10.23.04 PM.png" alt="Breakfast">
+                <h3>Breakfast</h3>
+                <p>Start your day with our nutritious breakfast options including continental and local specialties.</p>
+                <div class="price">Starting from Rs. 299</div>
+            </div>
+
+            <div class="food-box">
+                <img src="images/Screenshot 2025-03-03 at 10.23.31 PM.png" alt="Lunch">
+                <h3>Lunch</h3>
+                <p>Enjoy a variety of cuisines with our carefully crafted lunch menu featuring both vegetarian and non-vegetarian options.</p>
+                <div class="price">Starting from Rs. 399</div>
+            </div>
+
+            <div class="food-box">
+                <img src="images/Our Menu.jpeg" alt="Dinner">
+                <h3>Dinner</h3>
+                <p>Experience fine dining with our premium dinner selection and special local delicacies.</p>
+                <div class="price">Starting from Rs. 499</div>
+            </div>
+        </div>
+
+        <div class="food-features">
+            <div class="feature">
+                <i class="fas fa-utensils"></i>
+                <h4>Quality Food</h4>
+                <p>Fresh ingredients and expert chefs</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-clock"></i>
+                <h4>24/7 Service</h4>
+                <p>Available round the clock</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-leaf"></i>
+                <h4>Healthy Options</h4>
+                <p>Nutritious and balanced meals</p>
+            </div>
+        </div>
+
+        <a href="foo.html" class="btn">Book Your Meal</a>
+    </section>
+
+    <!-- Adventure Section -->
+    <section class="adventure" id="adventure">
+        <h1 class="heading">Adventure Idea!</h1>
+
+        <div class="box-container">
+            <div class="box">
+                <img src="images/category-1.jpg" alt="Bungee Jump">
+                <h3>Bungee Jump</h3>
+                <p>Bungee Jumping Is An Activity That Involves A Person Jumping From A Great Height While Connected To A Large Elastic Cord.</p>
+                <a href="bungee.html" class="btn">Read More</a>
+            </div>
+
+            <div class="box">
+                <img src="images/category-2.jpg" alt="Zip Lines">
+                <h3>Zip Lines</h3>
+                <p>A Zip-Line, Zip Line, Zip-Wire, Or Flying Fox Is A Pulley Suspended On A Cable, Usually Made Of Stainless Steel, Mounted On A Slope.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+
+            <div class="box">
+                <img src="images/category-3.jpg" alt="Canoeing">
+                <h3>Canoeing</h3>
+                <p>Canoeing Is An Activity Which Involves Paddling A Canoe With A Single-Bladed Paddle.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages" id="packages">
+        <h1 class="heading">Popular Packages</h1>
+
+        <div class="box-container">
+            <div class="box">
+                <div class="image">
+                    <img src="images/img-1.jpg" alt="Manali Package">
+                </div>
+                <div class="content">
+                    <h3>Manali Package</h3>
+                    <p>Kullu Manali Shimla has always been a very popular destination for the old, young travelers as well as newly married couples who look for cheapest Manali tour packages & Manali Honeymoon Packages to experience the perfect solitude and calmness at its best.</p>
+                    <div class="price">Rs 5,999 - Rs 8,999</div>
+                    <a href="newpage.html" class="btn">Book Now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="images/img-2.jpg" alt="Goa Package">
+                </div>
+                <div class="content">
+                    <h3>Goa Package</h3>
+                    <p>The most popular beach of Goa, Baga is located close to Calangute beach, around 30 Km North of Panaji. Baga is popular for its nightlife with some very famous clubs such as Brittos, Titos and Mambos. There is also a range of water sports that you can try your hands at.</p>
+                    <div class="price">Rs 7,999 - Rs 12,999</div>
+                    <a href="newpage.html" class="btn">Book Now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="images/img-3.jpg" alt="Delhi Package">
+                </div>
+                <div class="content">
+                    <h3>Delhi Package</h3>
+                    <p>Boasting cultural diversity and rich heritage, Delhi is home to several temples, tombs, gardens, forts, museums, markets and more. We take you to some of the best spots in the city. Pick the best packages from here and enjoy the tour of Delhi with guide.</p>
+                    <div class="price">Rs 2,999 - Rs 8,999</div>
+                    <a href="newpage.html" class="btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="wrapper1">
+            <div class="title1">
+                <h1>Contact Us Form</h1>
+            </div>
+            <div class="contact-form">
+                <form method="POST" action="process_contact.php">
+                    <div class="input-fields">
+                        <input type="text" class="input" placeholder="Name" name="fullname" required>
+                        <input type="email" class="input" placeholder="Email Address" name="email" required>
+                        <input type="phone" class="input" placeholder="Phone" name="phone" required>
+                        <input type="text" class="input" placeholder="Subject" name="subject" required>
+                    </div>
+                    <div class="msg">
+                        <textarea placeholder="Message" name="message" required></textarea>
+                        <button name="submit" type="submit">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Quick Links</h3>
+                <a href="#home"><i class="fas fa-angle-right"></i> Home</a>
+                <a href="#booking"><i class="fas fa-angle-right"></i> Booking</a>
+                <a href="#adventure"><i class="fas fa-angle-right"></i> Adventure</a>
+                <a href="#packages"><i class="fas fa-angle-right"></i> Packages</a>
+                <a href="#contact"><i class="fas fa-angle-right"></i> Contact</a>
+            </div>
+
+            <div class="box">
+                <h3>Extra Links</h3>
+                <a href="#"><i class="fas fa-angle-right"></i> Ask Questions</a>
+                <a href="#"><i class="fas fa-angle-right"></i> About Us</a>
+                <a href="#"><i class="fas fa-angle-right"></i> Privacy Policy</a>
+                <a href="#"><i class="fas fa-angle-right"></i> Terms of Use</a>
+            </div>
+
+            <div class="box">
+                <h3>Contact Info</h3>
+                <a href="#"><i class="fas fa-phone"></i> +123-456-7890</a>
+                <a href="#"><i class="fas fa-phone"></i> +111-222-3333</a>
+                <a href="#"><i class="fas fa-envelope"></i> contact@tourandtravel.com</a>
+                <a href="#"><i class="fas fa-map"></i> Mumbai, India - 400001</a>
+            </div>
+
+            <div class="box">
+                <h3>Follow Us</h3>
+                <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+        </div>
+
+        <div class="credit">Created by <span>Tour & Travel</span> | All Rights Reserved</div>
+    </section>
+
+    <!-- Custom JS -->
+    <script>
+        // Menu button functionality
+        document.querySelector('#menu-btn').onclick = () => {
+            document.querySelector('.navbar').classList.add('active');
+        }
+
+        document.querySelector('#nav-close').onclick = () => {
+            document.querySelector('.navbar').classList.remove('active');
+        }
+
+        // Search button functionality
+        document.querySelector('#search-btn').onclick = () => {
+            document.querySelector('.search-form').classList.add('active');
+        }
+
+        document.querySelector('#close-search').onclick = () => {
+            document.querySelector('.search-form').classList.remove('active');
+        }
+
+        // Scroll event for header
+        window.onscroll = () => {
+            document.querySelector('.navbar').classList.remove('active');
+
+            if(window.scrollY > 0){
+                document.querySelector('.header').classList.add('active');
+            }else{
+                document.querySelector('.header').classList.remove('active');
+            }
+        }
+
+        // Remove preloader on page load
+        window.onload = () => {
+            document.querySelector('.preloader').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

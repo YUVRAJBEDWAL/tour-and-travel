@@ -32,6 +32,22 @@ app.get('/newpage.html', (req, res) => {
   res.sendFile(join(__dirname, 'newpage.html'));
 });
 
+// Add route for admin section
+app.get('/admin/index.php', (req, res) => {
+  res.sendFile(join(__dirname, 'admin/index.php'));
+});
+
+// Handle any requests with spaces in URL (like 'Admin Click')
+app.get('*', (req, res, next) => {
+  // Check if URL contains encoded spaces
+  if (req.url.includes('%20')) {
+    // Decode the URL and redirect to the correct path
+    const decodedUrl = decodeURIComponent(req.url);
+    return res.redirect(decodedUrl.replace(/ /g, ''));
+  }
+  next();
+});
+
 // Start server
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);

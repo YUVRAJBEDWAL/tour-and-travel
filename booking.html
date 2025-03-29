@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelEase - Complete Travel Solution</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-plane-departure"></i> TravelEase</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="#transport"><i class="fas fa-route"></i> Transport</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#stays"><i class="fas fa-hotel"></i> Stays</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#activities"><i class="fas fa-umbrella-beach"></i> Activities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#deals"><i class="fas fa-tag"></i> Deals</a></li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        <i class="fas fa-user"></i> Login
+                    </button>
+                    <button class="btn btn-warning" id="emergencyBtn">
+                        <i class="fas fa-exclamation-circle"></i> SOS
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container">
+            <div class="search-box">
+                <ul class="nav nav-pills mb-3" id="bookingTabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="pill" href="#flights">
+                            <i class="fas fa-plane"></i> Flights
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="pill" href="#hotels">
+                            <i class="fas fa-hotel"></i> Hotels
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="pill" href="#trains">
+                            <i class="fas fa-train"></i> Trains
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="pill" href="#buses">
+                            <i class="fas fa-bus"></i> Buses
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content p-4">
+                    <!-- Flight Search -->
+                    <div class="tab-pane fade show active" id="flights">
+                        <form class="search-form" data-type="flight">
+                            <div class="row g-3">
+                                <div class="col-md-3">
+                                    <label class="form-label">From</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-plane-departure"></i></span>
+                                        <input type="text" class="form-control" name="from" placeholder="City or Airport" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">To</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-plane-arrival"></i></span>
+                                        <input type="text" class="form-control" name="to" placeholder="City or Airport" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="form-label">Date</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                                        <input type="date" class="form-control" name="date" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="form-label">Passengers</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        <select class="form-control" name="passengers">
+                                            <option value="1">1 Adult</option>
+                                            <option value="2">2 Adults</option>
+                                            <option value="3">3 Adults</option>
+                                            <option value="4">4 Adults</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="form-label">&nbsp;</label>
+                                    <button type="submit" class="btn btn-primary w-100">
+                                        <i class="fas fa-search"></i> Search
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Hotels Search -->
+                    <div class="tab-pane fade" id="hotels">
+                        <form class="search-form" data-type="hotel" action="hotel-search.html" method="get">
+                            <div class="row g-3">
+                                <div class="col-md-3">
+                                    <label class="form-label">Destination</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                                        <input type="text" class="form-control" name="destination" placeholder="City or Hotel" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="form-label">Check-in</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                                        <input type="date" class="form-control" name="checkin" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="form-label">Check-out</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                                        <input type="date" class="form-control" name="checkout" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Guests & Rooms</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-users"></i></span>
+                                        <select class="form-control" name="guests">
+                                            <option value="1-1">1 Guest, 1 Room</option>
+                                            <option value="2-1">2 Guests, 1 Room</option>
+                                            <option value="2-2">2 Guests, 2 Rooms</option>
+                                            <option value="4-2">4 Guests, 2 Rooms</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="form-label">&nbsp;</label>
+                                    <button type="submit" class="btn btn-primary w-100">
+                                        <i class="fas fa-search"></i> Search
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Payment Methods Section -->
+                    <div class="container my-5">
+                        <h3><i class="fas fa-credit-card"></i> Accepted Payment Methods</h3>
+                        <div class="row payment-methods">
+                            <div class="col-md-2 col-4">
+                                <div class="payment-method">
+                                    <img src="images/upi.png" alt="UPI">
+                                    <span>UPI</span>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-4">
+                                <div class="payment-method">
+                                    <img src="images/visa.png" alt="Visa">
+                                    <span>Visa</span>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-4">
+                                <div class="payment-method">
+                                    <img src="images/mastercard.png" alt="Mastercard">
+                                    <span>Mastercard</span>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-4">
+                                <div class="payment-method">
+                                    <img src="images/rupay.png" alt="RuPay">
+                                    <span>RuPay</span>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-4">
+                                <div class="payment-method">
+                                    <img src="images/netbanking.png" alt="Net Banking">
+                                    <span>Net Banking</span>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-4">
+                                <div class="payment-method">
+                                    <img src="images/wallet.png" alt="Wallets">
+                                    <span>Wallets</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more payment methods -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Emergency Support Modal -->
+    <div class="modal fade" id="emergencyModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title">Emergency Support</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="emergency-contacts">
+                        <h6>24/7 Helpline</h6>
+                        <p><i class="fas fa-phone"></i> +1-800-TRAVEL</p>
+                        <p><i class="fas fa-envelope"></i> emergency@travelease.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/booking.js"></script>
+</body>
+</html>
+
+<style>
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    color: white;
+}
+
+.search-box {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    color: #333;
+}
+
+.nav-pills .nav-link {
+    color: #666;
+    padding: 15px 25px;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #007bff;
+}
+
+/* Payment Methods */
+.payment-methods {
+    margin-top: 20px;
+}
+
+.payment-method {
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.payment-method img {
+    max-width: 60px;
+    margin-bottom: 10px;
+}
+
+/* Emergency Button */
+#emergencyBtn {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 50px 0;
+    }
+    
+    .search-box {
+        margin: 0 15px;
+    }
+}
+</style>

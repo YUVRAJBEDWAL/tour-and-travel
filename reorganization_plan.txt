@@ -1,0 +1,76 @@
+# Travel Booking Project Reorganization Plan
+
+## Current Issues Identified
+
+1. Multiple CSS files scattered across different locations (style.css, styles.css, newbackgroung.css, admin-style.css)
+2. Duplicate HTML files (index.html in root and HTML directory, booking.html in root and booking directory)
+3. JavaScript files mixed in different locations (js directory, script.js in root)
+4. PHP files in a directory named FILE.PHP (unconventional naming)
+5. Multiple SQL files in the root directory
+6. Multiple similar directories with potentially duplicate functionality (IMP, shared, etc.)
+7. Inconsistent naming conventions
+
+## Proposed Directory Structure
+
+```
+/
+├── assets/
+│   ├── css/
+│   │   ├── style.css (main styles)
+│   │   ├── admin.css (admin panel styles)
+│   │   └── booking.css (booking-related styles)
+│   ├── js/
+│   │   ├── main.js (main functionality)
+│   │   ├── admin.js (admin panel scripts)
+│   │   ├── booking.js (booking-related scripts)
+│   │   └── api.js (API interaction scripts)
+│   └── images/
+│       └── [all image files]
+├── backend/
+│   ├── config/
+│   │   └── db_connect.php
+│   ├── models/
+│   │   └── [database models]
+│   ├── routes/
+│   │   └── [API routes]
+│   └── utils/
+│       └── [utility functions]
+├── includes/
+│   └── [reusable PHP components]
+├── admin/
+│   ├── index.html
+│   ├── login.html
+│   └── [other admin files]
+├── user/
+│   ├── login.html
+│   ├── register.html
+│   └── [other user account files]
+├── booking/
+│   ├── flights.html
+│   ├── hotels.html
+│   ├── transport.html
+│   └── rentals.html
+├── database/
+│   └── [SQL files]
+└── index.html (main entry point)
+```
+
+## Implementation Steps
+
+1. Create the new directory structure
+2. Consolidate CSS files
+3. Organize JavaScript files
+4. Rename FILE.PHP to includes or backend/includes
+5. Move SQL files to database directory
+6. Update file references in HTML, PHP, and JS files
+7. Remove duplicate files
+8. Test the application to ensure everything works correctly
+
+## Benefits
+
+- Improved maintainability
+- Better organization of code
+- Easier navigation for developers
+- Reduced redundancy
+- Clearer separation of concerns
+- More professional structure

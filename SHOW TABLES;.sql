@@ -1,1 +1,1 @@
-SHOW TABLES;
+USE travel_db;SHOW TABLES;SELECT username, email, full_name FROM users WHERE username = 'admin';SHOW TABLES;

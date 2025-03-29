@@ -1,0 +1,100 @@
+/* Admin Dashboard Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Sidebar Styles */
+#sidebar {
+    min-height: 100vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding-top: 20px;
+}
+
+#sidebar .nav-link {
+    color: #adb5bd;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: all 0.3s;
+}
+
+#sidebar .nav-link:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#sidebar .nav-link.active {
+    color: #fff;
+    background-color: #0d6efd;
+}
+
+/* Content Section Styles */
+.content-section {
+    display: none;
+    padding: 20px 0;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* Card Styles */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    font-weight: 600;
+}
+
+/* Table Styles */
+.table th {
+    font-weight: 600;
+    border-top: none;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* Status Badge Styles */
+.badge {
+    padding: 8px 12px;
+    border-radius: 30px;
+    font-weight: 500;
+}
+
+/* Package Card Styles */
+.package-card {
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.package-card:hover {
+    transform: translateY(-5px);
+}
+
+.package-card .card-img-top {
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* Form Control Styles */
+.form-control, .form-select {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+}
+
+.form-control:focus, .form-select:focus {
+    box-shadow: none;
+    border-color: #0d6efd;
+}
