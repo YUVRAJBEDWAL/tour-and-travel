@@ -1,3 +1,5 @@
+# Ignore large files
+xampp-installer.dmg
 .DS_Store
 *.log
 /vendor
